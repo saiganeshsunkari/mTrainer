@@ -1,0 +1,48 @@
+.botContents_growl>.growl {
+	float: right;
+	position: fixed;
+	right: 10px;
+	top: 70px;
+	width: 250px;
+}
+.status-indicator{
+	span{
+		position: absolute;
+    font-size: 10px;
+		letter-spacing: 0.75px;
+    padding: 1px 4px;
+    color: #fff;
+    text-transform: capitalize;
+	}
+	.grey-bg{
+		background-color: #ccc;
+		color: #888;
+	}
+}
+.heading-profile {
+	.model-name-tight-wrapper {
+		border-bottom: 3px solid #ccc;
+		font-weight: 700;
+		padding: 0px 5px 5px 5px;
+	}
+}
+.controls.portfolio-nav {
+	margin-top: 0px;
+	text-align: left;
+  .nav-wrapper{
+    border-bottom:2px solid #ccc;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    .tabHeads{
+      cursor: pointer;
+      webkit-transition: color 0.3s;
+      transition: color 0.3s;
+      &:hover{
+        color: fade(@theme_primary_lt, 65%) !important;
+      }
+    }
+  }
+}
+.tabHeads.active {
+	color: @theme_primary_lt !important;
+}

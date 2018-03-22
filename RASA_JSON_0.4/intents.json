@@ -1,0 +1,34 @@
+{
+  "intent": "Job_Search",
+  "utterances": [
+    {
+      "utterance": "looking for J2EE jobs in USA",
+      "entities": [
+        {
+          "start": "",
+          "end": "",
+          "value": "J2EE",
+          "entity": "Technology"
+        },
+        {
+          "Start": "",
+          "End": "",
+          "value": "USA",
+          "entity": "Location"
+        }
+      ]
+    },
+    {
+      "utterance": "show me Marketing jobs",
+      "entities": [
+        {
+          "Start": "",
+          "End": "",
+          "value": "Marketing",
+          "entity": "Division"
+        }
+      ]
+    }
+  ]
+}
+

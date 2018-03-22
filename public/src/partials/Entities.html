@@ -1,0 +1,118 @@
+<div class="panel-content">
+    <div class="main-title-sec">
+        <div class="row">
+            <div class="col-md-3 column">
+                <div class="heading-profile">
+                    <h2>Bot Name</h2>
+                    <!--<span>Welcome back, John</span>-->
+                </div>
+            </div>
+            <!--<div class="col-md-9 column">
+                <div class="top-bar-chart">
+                    <div class="bar-chart-details">
+                        <p>New User</p>
+                        <h5>17,561</h5>
+                    </div>
+                    <span id="new-orders" class="sparkline">4,5,6,7,6,5,4,3,3,4</span>
+                </div>
+                <div class="top-bar-chart">
+                    <div class="bar-chart-details">
+                        <p>My Balance</p>
+                        <h5>$21,561.01</h5>
+                    </div>
+                    <span id="my-balance" class="sparkline">4,3,6,3,8,6,4,3,3,4</span>
+                </div>
+                <div class="quick-btn-title">
+                    <a href="javascript:void(0)" title=""><i class="fa fa-plus"></i> New Tasks</a>
+                    <a href="javascript:void(0)" title=""><i class="fa fa-cloud-upload"></i> Upload Files</a>
+                </div>
+            </div>-->
+            <div class="col-md-9 column">
+                <span class="chat-icon" ><i class="fa fa-comments-o fa-3x"></i></span>
+            </div>
+        </div>
+    </div><!-- Heading Sec -->
+    <div>
+    <ul class="breadcrumbs">
+        <li><a href="#/home" title="">Home</a></li>
+        <li><a href="#/dashboard" title="">Dashboard</a></li>
+        <li><a href="javascript:void(0)" title="">Entities</a></li>
+    </ul>
+    </div><br><br>
+    <br>
+    <div class="row">
+    <div data-ng-init="init()"><!--Functionality Start-->
+        <div class="entityDiv">
+            <br>
+            <input type="text" data-ng-model="newEntity" placeholder="Enter New Entity" required ng-keypress="($event.which === 13)?addEntity():0">
+            <button class="flat-btn" data-ng-click="addEntity()">Add</button>
+            <button class="flat-btn2" data-ng-click="saveEntities()">Save</button>
+        </div>
+        <br><br>
+        <div class="entityDiv">
+            <table clas="table">
+                <tr  class="tr" data-ng-repeat= "entity in entities">
+                    <td class="td col">
+                        <span>{{entity.entityName}}</span>
+                    </td>
+                    <td class="td">
+                        <div >
+                            <input class="input" type="text" id="input_{{$index}}" data-ng-model="dynamicObjects[entity.entityName]" placeholder="Rename the entity" ng-keypress="($event.which === 13)?editEntity($index):0">
+                            <button class="flat-btn1" data-ng-click="editEntity($index)"><i id="button_{{$index}}" class="fa fa-edit"></i></button>
+                            <button class="flat-btn1 deactive" data-ng-click="noChange($index)" id="button1_{{$index}}"><i class="fa fa-remove" title="Discard editing"></i></button>
+                        </div>
+                    </td>
+                    <td class="td">
+                        <button class="flat-btn1" data-ng-click="removeEntity($index)" title="Delete Entity"><i class="fa fa-window-close-o"></i></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div><!--Functionality End-->
+    </div>
+
+</div>
+
+<!--Existing-->
+<!--<div class="panel-content">
+    <div class="main-title-sec">
+        <div class="row">
+            <div class="col-md-3 column">
+                <div class="heading-profile">
+                    <h2>Bot Name</h2>
+                    &lt;!&ndash;<span>Welcome back, John</span>&ndash;&gt;
+                </div>
+            </div>
+            &lt;!&ndash;<div class="col-md-9 column">
+                <div class="top-bar-chart">
+                    <div class="bar-chart-details">
+                        <p>New User</p>
+                        <h5>17,561</h5>
+                    </div>
+                    <span id="new-orders" class="sparkline">4,5,6,7,6,5,4,3,3,4</span>
+                </div>
+                <div class="top-bar-chart">
+                    <div class="bar-chart-details">
+                        <p>My Balance</p>
+                        <h5>$21,561.01</h5>
+                    </div>
+                    <span id="my-balance" class="sparkline">4,3,6,3,8,6,4,3,3,4</span>
+                </div>
+                <div class="quick-btn-title">
+                    <a href="javascript:void(0)" title=""><i class="fa fa-plus"></i> New Tasks</a>
+                    <a href="javascript:void(0)" title=""><i class="fa fa-cloud-upload"></i> Upload Files</a>
+                </div>
+            </div>&ndash;&gt;
+        </div>
+    </div>&lt;!&ndash; Heading Sec &ndash;&gt;
+    <ul class="breadcrumbs">
+        <li><a href="#/home" title="">Home</a></li>
+        <li><a href="#/dashboard" title="">Dashboard</a></li>
+        <li><a href="javascript:void(0)" title="">Entities</a></li>
+    </ul>
+
+
+<br><br>
+    <br>
+    <img src="public/src/images/entities.PNG" style="margin-top: 20px"    >
+</div>-->

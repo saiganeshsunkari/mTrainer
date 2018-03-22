@@ -1,0 +1,62 @@
+<div class="row">
+  <div><!--Functionality Start-->
+    <div class="entityDiv">
+      <div class="row">
+        <div class="add-new-entity-input col-md-4">
+          <div class="input-group">
+            <input type="text" class="form-control" data-ng-model="botEntities.newEntity" placeholder="Enter New Entity" required
+            ng-keypress="($event.which === 13)?addNewEntity():0">
+            <span class="input-group-btn">
+              <button class="btn green-bg radius-0" type="button" data-ng-click="addNewEntity()" ng-disabled="!botEntities.newEntity"><span class="fa fa-fw fa-plus"></span> Add</button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div data-ng-hide="activeModel.entities.length" style="margin-top:25px;">You don't have any Entities. Please create some.</div>
+      <div class="row">
+        <div class="single-entity-wrapper col-md-3" data-ng-repeat="entity in activeModel.entities">
+          <div class="widget text-center" ng-class="{ 'entity-editable': entity.editable}">
+            <span class="entity-title">
+              <h4 data-ng-if="!entity.editable">{{entity.entityName}}</h4>
+              <input type="text" value="{{entity.entityName}}" class="form-control entity-edit-input radius-0" data-ng-if="entity.editable">
+            </span>
+            <p class="entity-actions" data-ng-if="!entity.editable">
+              <span class="edit fa fa-fw fa-pencil" title="Edit entity - {{entity.entityName}}" data-ng-click="entity.editable = true"></span>
+              <span class="delete fa fa-fw fa-trash"  title="Delete entity - {{entity.entityName}}" data-ng-click="removeEntity(entity)"></span>
+            </p>
+            <p class="entity-actions-editable" data-ng-if="entity.editable">
+              <span class="edit fa fa-fw fa-check" title="Save entity - {{entity.entityName}}" data-ng-click="editEntity(entity, $event, $index)"></span>
+              <span class="delete fa fa-fw fa-times"  title="Cancel changes for - {{entity.entityName}}" data-ng-click="entity.editable = false"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table clas="table" class="entities_table" hidden>
+      <tr class="tr" data-ng-repeat="entity in activeModel.entities">
+        <td class="td col">
+          <span id="entity_{{$index}}"
+          data-ng-dblclick="editEntity($index, entity)">{{entity.entityName}}</span>
+          <input class="input" type="text" id="input_{{$index}}" data-ng-model="renamedEntity.name"
+          data-ng-keypress="($event.which === 13)?editEntity($index):0">
+          <!--placeholder="Rename the entity"-->
+        </td>
+        <td class="td">
+          <div>
+            <!--<input type="text"  data-ng-model="dynamicObjects[entity.entityName]" ng-keypress="($event.which === 13)?editEntity($index):0" data-ng-show="enableEditingEntity">-->
+
+            <button class="flat-btn1" data-ng-click="editEntity($index, entity)"><i
+              id="button_{{$index}}" class="fa fa-edit"></i></button>
+              <button class="flat-btn1 deactive" data-ng-click="noChange($index)" id="button1_{{$index}}">
+                <i class="fa fa-remove" title="Discard editing"></i></button>
+              </div>
+            </td>
+            <td class="td">
+              <button class="flat-btn1" data-ng-click="removeEntity(entity)" title="Delete Entity"><i
+                class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+          </table>
+  </div><!--Functionality End-->
+</div>

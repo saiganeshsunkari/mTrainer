@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  mtrainer:
+    image: saiganesh/mtrainer:43
+    environment:
+      - RASA_URI=192.168.1.181:5002
+    ports:
+      - "5001:5001"
+    depends_on:
+      - rasa
+    deploy:
+      replicas: 1
+    networks:
+      - mongo
+  rasa:
+    image: saiganesh/rasa
+    ports:
+      - "5002:5000"
+    deploy:
+      replicas: 1
+    networks:
+      - mongo
+networks:
+  mongo:
+    external: true
+

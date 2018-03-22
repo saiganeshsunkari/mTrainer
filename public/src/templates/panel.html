@@ -1,0 +1,125 @@
+<div id="chat-panel" class="chat-panel slide-panel chat_slide_panel" data-ng-controller="ChatCtrl">
+    <div class="panel panel-default chat-panel-a">
+        <div class="panel-heading">
+            <!--Panel HEading-->
+            <span class="heading-text">Test Model</span>
+            <span><i class="fa fa-times pull-right close-chat-icon" id="close-chat-icon"></i> </span>
+        </div>
+        <div class="panel-body chat-body" scroll-glue>
+            <!--Panel Body-->
+            <div>
+                <div data-ng-repeat="chatMessage in chatMessages" class="chat_section">
+                    <span data-ng-if="chatMessage.class == 'user-msg'">
+                        <span class="{{chatMessage.class}}">{{chatMessage.message}}</span>
+                    </span>
+                    <span data-ng-if="chatMessage.class == 'model'">
+                        <span class="{{chatMessage.class}}">
+                            <strong>Text: </strong>
+                            <em>{{chatMessage.message.text}}</em>
+                            <br>
+                            <strong>entities:</strong>
+                            <span data-ng-hide="{{chatMessage.message.entities.length}}">{{"null"}}</span>
+                            <br>
+                            <ul data-ng-show="{{chatMessage.message.entities.length}}">
+                                <li data-ng-repeat="entity in chatMessage.message.entities">
+                                    {{"Value: "+ entity.value}}
+                                    <br> {{"Entity: "+entity.entity}}
+                                </li>
+                            </ul>
+
+                            <strong>Intent: </strong>
+                            <span class="primary_intent">{{chatMessage.message.intent.name}}</span>
+                            <br>
+                            <strong>Intents Ranking: </strong>
+                            <ul class="intent_ranking">
+                                <li data-ng-repeat="intent in chatMessage.message.intent_ranking">{{intent.name}} - {{intent.confidence | number : 5}}</li>
+                            </ul>
+
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div>
+
+            </div>
+            <div class="chat_buttons">
+                <input type="text" class="chat-input" data-ng-model="userMessage" data-ng-keypress="($event.which === 13)?sendTestChat():0" autofocus>
+                <button class="btn btn-default chat-sent-btn" data-ng-click="sendTestChat()"><i class="fa fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Slide Panel -->
+
+<style>
+.panel-heading .heading-text {
+    font-weight: 500;
+}
+
+.panel-heading .close-chat-icon {
+    cursor: pointer;
+}
+
+.chat_section {
+    padding-bottom: 20px;
+}
+
+.chat_slide_panel {
+    overflow-x: hidden;
+}
+
+.primary_intent {
+    font-weight: 500;
+}
+
+.intent_ranking {
+    list-style-type: none;
+    padding-left: 5px;
+}
+
+.chat-body {
+    word-wrap: break-word;
+    overflow-y: auto;
+    height: 92%;
+}
+
+.chat_buttons {
+    position: absolute;
+    bottom: 5px;
+}
+
+.user-msg {
+    background-color: #474C60;
+    border: 1px solid #474C60;
+    color: #fff;
+    /* float: right; */
+    right: 2px;
+    display: block;
+    border-radius: 35px 0px 35px 35px;
+    clear: both;
+    padding: 10px;
+    margin: 5px;
+    float: right;
+    display: block;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.model {
+    background-color: transparent;
+    border: 2px solid #474C60;
+    color: #474C60;
+    display: block;
+    border-radius: 2px;
+    float: left;
+    margin: 5px;
+    border-radius: 0px 35px 35px 35px;
+    padding: 15px;
+    clear: both;
+    position: relative;
+    word-wrap: break-word;
+    width: inherit;
+}
+</style>

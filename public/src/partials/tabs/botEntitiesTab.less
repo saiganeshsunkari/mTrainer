@@ -1,0 +1,74 @@
+.entityDiv{
+  margin: 0px 30px;
+  .single-entity-wrapper{
+    .entity-editable{
+      background-color: rgba(224, 224, 224, 0.6);
+      border-color: #aaa !important;
+    }
+    .widget{
+      text-transform: uppercase;
+      // background-color: rgba(204, 204, 204, 0.8);
+      border: 2px solid #ddd;
+      .entity-title{
+        h4{
+          padding-top: 10%;
+          font-weight: 700;
+          color: #333;
+        }
+        .entity-edit-input{
+          background-color: transparent;
+          margin-top: 15px;
+          margin-bottom: 7px;
+          padding-top: 10%;
+          padding-bottom: 15px;
+          margin-left:5%;
+          margin-right:5%;
+          width: 90%;
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: 700;
+          font-size: 18px;
+          border: none;
+          border-bottom: 2px solid #888;
+
+        }
+      }
+      .entity-actions{
+        span{
+          padding: 10px 15px;
+          font-size: 15px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        .edit:hover{
+          color: #EC971F;
+        }
+        .delete:hover{
+          color: #D9534F;
+        }
+      }
+      .entity-actions-editable{
+        span{
+          padding: 10px 15px;
+          font-size: 15px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        .edit{
+          color: #33B7A0;
+          &:hover{
+            border-color: #33B7A0;
+          }
+        }
+        .delete{
+          color: #D9534F;
+          &:hover{
+            border-color: #D9534F;
+          }
+        }
+      }
+    }
+  }
+}

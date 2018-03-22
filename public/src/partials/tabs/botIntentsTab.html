@@ -1,0 +1,138 @@
+
+<div class="new-intent-contents">
+  <div class="input-group" style="margin: 35px 0px;">
+    <input type="text" class="form-control radius-0" data-ng-model="newIntentContents.intent" placeholder="Add new Intent" data-ng-keypress="($event.which === 13)&&(newIntentContents.intent)?addNewIntent():0">
+    <span class="input-group-btn">
+      <button class="btn green-bg radius-0" data-ng-click="addNewIntent()" data-ng-disabled="!newIntentContents.intent" type="button"><i class="fa fa-fw fa-plus"></i>Add New Intent</button>
+    </span>
+  </div>
+
+  <div data-ng-hide="intents.length">You don't have any Intents. Please create some.</div>
+  <ul class="accordion">
+    <li class="intent_{{$index}}" data-ng-repeat="singleIntent in intents">
+      <a class="toggle accordion" href="javascript:void(0);">
+        <span class="original-intent-title" ng-if="!singleIntent.editable">{{singleIntent.intent}}</span>
+        <span class="intent-editable-actions" ng-if="singleIntent.editable">
+          <input type="text" class="renameIntentInput" value="{{singleIntent.intent}}" data-ng-keypress="($event.which === 13)&&(changedIntent.name)?saveRenamedIntent(singleIntent, $event):0">
+          <span class="save" data-ng-click="saveRenamedIntent(singleIntent, $event)"><i class="fa fa-fw fa-check"></i></span>
+          <span class="cancel" data-ng-click="cancelRenameIntent(singleIntent)"><i class="fa fa-fw fa-times"></i></span>
+        </span>
+        <!-- <i class="fa fa-trash pull-right" title="Delete {{singleIntent.intent}}" data-ng-click="deleteIntent(singleIntent)"></i> -->
+        <span class="pull-right intent-actions">
+          <span class="edit" data-ng-click="renameIntent(singleIntent, $event)" ng-if="!singleIntent.editable">EDIT</span>
+          <span class="delete" data-ng-click="deleteIntent(singleIntent)">DELETE</span>
+        </span>
+      </a>
+
+      <ul class="inner">
+        <div class="new-intent-contents">
+          <div hidden>
+            <span data-ng-if="enableRenameIntent =='yes'">
+              <input type="text"  data-ng-model="changedIntent.name" data-ng-keypress="($event.which === 13)&&(changedIntent.name)?saveRenamedIntent(singleIntent._id):0">
+              <button class="btn btn-primary" data-ng-click="saveRenamedIntent(singleIntent._id)"
+              data-ng-disabled="!changedIntent.name">Save Intent
+            </button>
+            <button data-ng-click="cancelRenameIntent()" class="btn btn-warning">Cancel</button></span>
+            <button class="btn btn-default" data-ng-click="renameIntent(singleIntent.intent)"
+            data-ng-if="enableRenameIntent =='no'">Rename Intent
+          </button>
+          <button class="btn btn-danger pull-right" data-ng-click="deleteIntent(singleIntent)">Delete
+            Intent
+          </button>
+          <div class="quick-btn-title intents_pos">
+            <button class="btn btn-default moveIntentPosUp" title="Move this Intent Up" data-ng-click="intentMoveUp(singleIntent._id)"><i class="fa fa-chevron-up"></i></button>
+            <button class="btn btn-default moveIntentPosDown" title="Move this Intent Down" data-ng-click="intentMoveDown(singleIntent._id)"><i class="fa fa-chevron-down"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group addNewUtterance">
+        <input type="text" class="form-control radius-0" data-ng-model="newIntentContents.utterance"
+        data-ng-keypress="($event.which === 13)&&(newIntentContents.utterance)?addNewUtterance(singleIntent):0" placeholder="Add new utterance for intent {{singleIntent.intent}}">
+        <span class="input-group-btn">
+          <button class="btn green-bg radius-0" type="button" data-ng-click="addNewUtterance(singleIntent)" data-ng
+          data-ng-disabled="!newIntentContents.utterance"><span class="fa fw-fw fa-plus"></span> Add Utterance</button>
+        </span>
+      </div>
+      <li data-ng-repeat="singleUtterance in singleIntent.utterances">
+        <a href="javascript:void(0);" class="toggle accordion">{{singleUtterance.utterance}}</a>
+        <div class="inner">
+          <div data-ng-init="showMappingDiv = 0" class="new-intent-contents">
+            <!--utterance and Entity mapping-->
+            <div data-ng-show="showMappingDiv" class="addMappingEditable">
+              <span style="padding-bottom:10px; font-size:18px; border-bottom: 2px solid #888;"><span class="valueSelection" data-ng-click="selectWord($event)">{{singleUtterance.utterance}}</span></span>
+              <div ng-if="newIntentContents.selectedValue"> <!-- Entitly mapping. -->
+                <div class="addMappingFormFields">
+
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <span class="labels">Word: </span>
+                      <span>{{newIntentContents.selectedValue}} </span> <span>&nbsp;</span>
+                    </div><br>
+                    <div class="form-group">
+                      <span class="labels"> Map to entity: </span>
+                      <select class="form-control input-sm" name="" id="entityInput" data-ng-model="newIntentContents.selectedEntity">
+                        <option data-ng-repeat="entity in activeModel.entities" value="{{entity.entityName}}">{{entity.entityName}}</option>
+                      </select>
+                    </div>
+
+                  </form>
+
+                </div>
+                <div class="mappingActionButtons" style="margin-top: 25px;">
+                  <span data-ng-click="showMappingDiv = 0"
+                  data-ng-show="newIntentContents.selectedValue && newIntentContents.selectedEntity">
+                  <button type="submit"
+                  data-ng-click="saveNewEntityMapping(singleIntent._id,singleUtterance.utterance)"
+                  class="btn green-bg mini">Save</button>
+                </span>
+                <span>
+                  <button data-ng-click="(newIntentContents.selectedValue='')  (newIntentContents.selectedEntity= '')" class="btn btn-warning mini"
+                  data-ng-if="newIntentContents.selectedEntity || newIntentContents.selectedValue">Clear</button>
+                </span>
+                <span data-ng-click="cancelNewEntityMapping()">
+                  <button data-ng-click="showMappingDiv = 0"
+                  class="btn red-bg mini">Cancel</button>
+                </span>
+              </div>
+            </div>
+            <div class="emptyWordSelection" ng-if="!newIntentContents.selectedValue">
+              <p>Click on the word to map an entity.</p>
+            </div>
+          </div>
+          <button class="btn btn-success hidden" data-ng-click="showMappingDiv = 1"
+          data-ng-hide="showMappingDiv">Add Mapping
+        </button>
+        <div class="addMappingArea" data-ng-hide="showMappingDiv" data-ng-click="showMappingDiv = 1">
+          <p class="text-center"><span class="fa fa-fw fa-plus-circle"></span>Add new intent mapping.</p>
+        </div>
+        <button class="hidden btn btn-danger pull-right"
+        data-ng-click="deleteUtterance(singleUtterance.utterance,singleIntent)" data-ng-hide="showMappingDiv">
+        {{"Delete Utterance" }} <!--+ singleUtterance.utterance-->
+      </button>
+
+    </div>
+    <div ng-repeat="singleEntity in singleUtterance.entities" class="single_mapping">
+      <div class="mapping_data" style="border-bottom: 1px solid #ddd;">
+        <i class="fa fa-trash pull-right"
+        data-ng-click="deleteMapping(singleIntent._id,singleUtterance.utterance,singleEntity)"></i>
+        <strong> Utterance: </strong>{{singleUtterance.utterance}}
+        <div>
+          <span><strong>Value: </strong> <em>{{singleEntity.value}}</em></span>
+          <span class="entity_inMapping"><strong>Entitiy: </strong>{{singleEntity.entity}}</span>
+        </div>
+      </div>
+
+      <br>
+
+    </div>
+
+  </div> <!-- /inner -->
+</li>
+
+</ul>
+
+</li>
+
+
+</ul>

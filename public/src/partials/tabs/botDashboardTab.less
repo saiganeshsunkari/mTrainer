@@ -1,0 +1,194 @@
+.model-info-wrapper{
+  .description-hidden{
+    padding: 50px 15px;
+    border: 3px dashed #ccc;
+    font-weight: 700; color: #ccc
+  }
+  .model-info-label{
+    font-weight: 700;
+    &:last-child{
+      margin-right: 5px;
+    }
+  }
+}
+.model-controls-wrapper{
+  .model-controls-info-card-wrapper{
+    padding: 20px 0px;
+    background-color: @theme_primary;
+    .model-controls-info-card{
+      p.content-wrapper-label{
+        color: #fff;
+        margin-bottom: 0px;
+      }
+      p.content-wrapper{
+        color: #fff;
+        margin: 0px;
+        margin-bottom: 10px;
+        .content{
+          font-weight: 700;
+          font-size: 35px;
+          padding-bottom: 5px;
+          border-bottom: 2px solid #fff;
+        }
+      }
+      color: #fff;
+      display: inline-block;
+      text-align: center;
+      width: 48%;
+    }
+  }
+}
+//
+// @text-color: @theme_primary;
+// @bg-color: #fff;
+
+@text-color: #fff;
+@bg-color: @theme_primary;
+
+.model-url-wrapper{
+  margin-top: 25px;
+  #url-input-label{
+    font-weight: 700;
+    color: @theme_primary;
+    border: 1px solid transparent;
+  }
+}
+#secret-input-label{
+  font-weight: 700;
+  color: @text-color;
+  border: 1px solid transparent;
+}
+
+.model-controls-wrapper2{
+  padding: 0px 10px 30px 10px;
+  margin-top: 25px;
+  border: 2px solid @text-color;
+  color: @text-color;
+  background-color: @bg-color;
+  .model-controls-wrapper-header{
+    margin-bottom: 20px;
+    padding-top: 10px;
+    margin-bottom: 35px;
+    .content{
+      font-weight: 700;
+      padding-bottom: 10px;
+      border-bottom: 2px solid lighten(@theme_primary, 20%);
+    }
+    .stats-info{
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+  .each-cta{
+    padding: 0px 25px;
+    p{
+      margin-top: 15px;
+      text-align: justify;
+      // font-weight: 500;
+      color: @text-color;
+      font-weight: 500;
+      // color: #fff;
+    }
+  }
+  .model-stats-wrapper{
+    margin-top:35px;
+    .model-stats{
+      border-top:1px solid lighten(@text-color, 30%);
+      padding-top: 35px;
+      .model-stats-info-card{
+        p.content-wrapper-label{
+          color: @text-color;
+          margin-bottom: 0px;
+        }
+        p.content-wrapper{
+          color: @text-color;
+          margin: 0px;
+          margin-bottom: 10px;
+          .content{
+            font-weight: 700;
+            font-size: 35px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid @text-color;
+          }
+        }
+        color: @text-color;
+        display: inline-block;
+        text-align: center;
+        width: 48%;
+      }
+    }
+    .training-progress{
+      margin-left: 10px;
+      h3{
+        color: #fff;
+      }
+      .bar{
+        margin-left: 10px;
+        width: 100%;
+        background-color: transparent;
+        .progress{
+          width: 0%;
+          height: 2px;
+          background-color: @text-color;
+        }
+      }
+    }
+    .publish-output{
+      margin-left: 10px;
+      h5{
+        text-transform: uppercase;
+        font-weight: 700;
+        color: @text-color;
+        margin-bottom: 20px;
+      }
+      label{
+        font-weight: 400;
+      }
+      .input-group{
+        width: 100%;
+        input{
+          color: #fff;
+          background-color: transparent;
+        }
+        .input-group-addon{
+          color: pointer;
+          color: #fff;
+          background-color: transparent;
+        }
+      }
+      .secret-info{
+        p{
+          color: #fff;
+          padding:  0px 10px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+.description-shown-wrapper:hover{
+  .overlay{
+    opacity: 0.50;
+  }
+}
+.overlay{
+  opacity: 0;
+  color: #000;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  margin: 0px auto;
+  text-align: center;
+  font-size: 40px;
+  padding-top: 30px;
+  line-height: 27px;
+  transition: .5s ease;
+  span{
+    opacity: 1;
+  }
+  span.text{
+    font-size: 30px;
+  }
+}

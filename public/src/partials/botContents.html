@@ -1,0 +1,71 @@
+<style>
+
+</style>
+<section data-ng-include="'public/src/templates/panel.html'"></section>
+
+<div class="panel-content">
+  <div growl class="botContents_growl"></div>
+    <div class="main-title-sec" hidden>
+        <div class="row">
+            <div class="col-md-3 column">
+                <div class="heading-profile">
+                  <span class="small" style="padding-left:6px; font-size:13px;">Model</span>
+                    <h2><span class="model-name-tight-wrapper">{{activeModel.name}}</span></h2>
+                    <!--<span>Welcome back, John</span>-->
+                </div>
+            </div>
+            <div class="col-md-9 column">
+
+            </div>
+        </div>
+    </div><!-- Heading Sec -->
+    <ul class="breadcrumbs" hidden>
+        <li><a href="#/home" title="">Dashboard</a></li>
+        <li><a href="#/botcontents" title="">{{activeModel.name}}</a></li>
+        <!-- <li><a href="javascript:void(0)" title="">Summary</a></li>-->
+    </ul>
+    <span class="chat-icon green-bg" style="padding: 3px 10px; color: #fff; font-weight:500; position:absolute; bottom:15px; right:15px;">
+      Test Model
+    </span>
+
+
+    <section data-ng-init="init()"><!--Initilize init()for entities-->
+        <div class="controls portfolio-nav">
+
+            <div class="row nav-wrapper" style="">
+              <div class="col-md-4">
+                <span class="status-indicator">
+                  <span class="green-bg" ng-if="activeModel.publishMode != 'draft'">published</span>
+                  <span class="grey-bg" ng-if="activeModel.publishMode == 'draft'">Draft</span>
+                </span>
+                <h1 class="tabHeads" style="font-weight: 700; color:#ccc;" data-ng-click="setTab(1)" data-ng-class="{active:tab===1}">{{activeModel.name | limitTo: 15}}</h1>
+              </div>
+              <div class="col-md-4" style="text-align: center;">
+                <h3 class="tabHeads" style="font-weight: 700; margin-bottom: 0px; margin-top: 30px; color: #ccc"
+                data-ng-click="setTab(2)" data-ng-class="{active:tab===2}">
+                <i class="fa fa-puzzle-piece"></i> ENTITIES
+                <span style="font-size: 12px;position: absolute;bottom: 20px;">{{activeModel.entities.length}}</span>
+              </h3>
+              </div>
+              <div class="col-md-4" style="padding-left:45px;">
+                <h3 class="tabHeads" style="font-weight: 700; margin-bottom: 0px; margin-top: 30px; color: #ccc"
+                data-ng-click="setTab(3)" data-ng-class="{active:tab===3}"><i class="fa fa-quote-left"></i> INTENTS
+                <span style="font-size: 12px;position: absolute;bottom: 20px;">{{activeModel.intents.length}}</span>
+              </h3>
+              </div>
+            </div>
+        </div>
+
+        <div class="tabcontent" ng-if="tab === 1"
+             data-ng-include='"public/src/partials/tabs/botDashboardTab.html"'></div>
+        <div class="tabcontent" ng-if="tab === 2"
+             data-ng-include='"public/src/partials/tabs/botEntitiesTab.html"'></div>
+        <div class="tabcontent" ng-if="tab === 3" data-ng-include='"public/src/partials/tabs/botIntentsTab.html"'></div>
+        <div class="tabcontent" ng-if="tab === 4" data-ng-include='"public/src/partials/tabs/botSummaryTab.html"'></div>
+        <div class="tabcontent" ng-if="tab === 5" data-ng-include='"public/src/partials/tabs/botPublish&Train.html"'></div>
+
+
+    </section>
+
+
+</div>

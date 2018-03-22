@@ -1,0 +1,60 @@
+//miracle color palette
+@import "mColorPalette";
+
+//Glade palette
+@theme_green: #33B7A0;
+@theme_darkblue: #337AB7;
+@theme_blue: #36C6D3;
+@theme_pink: #ED6B75;
+@theme_primary: #474C60;
+@theme_primary_lt: #555A6D;
+
+.btn.green-bg{
+  border-color: @theme_green;
+}
+.btn.blue-bg{
+  border-color: @theme_darkblue;
+}
+.btn.skyblue-bg{
+  border-color: @theme_blue;
+}
+.btn.red-bg{
+  border-color: @theme_pink;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,900');
+@primary_font: 'Montserrat', sans-serif !important;
+.btn{
+  -webkit-transition: background-color 0.5s, color 0.5s, border 0.5s ease-out;
+  -moz-transition: background-color 0.5s, color 0.5s, border 0.5s ease-out;
+  -o-transition: background-color 0.5s, color 0.5s, border 0.5s ease-out;
+  transition: background-color 0.5s, color 0.5s, border 0.5s ease-out;
+}
+.radius-0{
+  border-radius: 0px;
+}
+body{
+  // font-family: 'Lato', sans-serif !important;
+  font-family: @primary_font;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: @primary_font;
+}
+p, ul, li, a{
+  font-family: @primary_font;
+}
+
+
+@import 'partials/section-login-panel';
+@import 'partials/section-header';
+@import 'partials/create-new-model';
+@import 'partials/section-dashboard-panel';
+
+//markup specific styles
+//tab parent - botContents.html
+@import '../partials/botContents.less';
+
+//simgle tabs
+@import '../partials/tabs/botDashboardTab';
+@import '../partials/tabs/botIntentsTab';
+@import '../partials/tabs/botEntitiesTab';

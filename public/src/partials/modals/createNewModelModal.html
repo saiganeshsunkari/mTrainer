@@ -1,0 +1,158 @@
+<!-- The actual modal template, just a bit o bootstrap -->
+<!--<script type="text/ng-template" id="modal.html">-->
+<div class="modal fade createBot-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-ng-click="" data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" style="font-weight: 700">Create a New Model</h4>
+      </div>
+      <form name="createmodelForm" class="form-horizontal createModel-form">
+        <div class="modal-body">
+          <div class="row">
+            <div id="step-1" class="content" style="display: block;">
+              <div class="col-xs-8 col-xs-offset-2">
+                <div class="inline-form">
+                  <label class="c-label">Model Name</label>
+                  <input name="modelname" type="text" data-ng-model="newModel.name" autofocus placeholder="Model Name" required>
+                  <span class="validatorText"
+                  data-ng-show="createmodelForm.modelname.$touched && createmodelForm.modelname.$invalid">Model name is required.</span>
+                </div>
+                <div class="model-denial" id="model-denial" hidden>
+                  <span class="text-danger small">This model name is already assigned. Please choose a different name.</span>
+                </div>
+
+              </div>
+              <div class="col-xs-8 col-xs-offset-2">
+                <div class="inline-form">
+                  <label class="c-label">Model Description</label>
+                  <textarea class="form-control" rows="3" placeholder="Model Description" name="modelDesc" data-ng-model="newModel.desc"></textarea>
+                </div>
+              </div>
+              <div class="col-xs-8 col-xs-offset-2" hidden>
+                <div class="inline-form">
+                  <label class="c-label">Tags</label>
+                  <input name="modeltags" type="text" data-ng-model="newModel.tags"
+                  placeholder="comma separated Tags" data-ng-pattern="/^[a-zA-Z0-9,_-]*$/">
+                </div>
+              </div>
+              <div class="col-xs-8 col-xs-offset-2" hidden>
+                <div class="inline-form">
+                  <label class="c-label">Already have a model?</label>
+                  <div style="padding:20px">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur voluptatum dignissimos iure nihil quibusdam enim quis adipisci, ipsum eveniet ea eum aliquid vel explicabo. Ea asperiores et officia eius ratione!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="modelCheck col-xs-8 col-xs-offset-2">
+                <p class="" style="letter-spacing: 0.3px; font-size: 11px; text-transform: uppercase; margin-top: 20px;">
+                  Already Have a Model?
+                </p>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <a href="javascript:void(0)" title="" class="c-btn mini" data-ng-click="haveModel = true" ng-class="{'active-btn' : haveModel, 'inactive-btn' : !haveModel}">Yes</a>
+                    <a href="javascript:void(0)" title="" class="c-btn mini" data-ng-click="haveModel = false"  ng-class="{'active-btn' : !haveModel, 'inactive-btn' : haveModel}">No</a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12" style="margin-top:15px;">
+                    <input ng-model="json" name="image_file"
+                    onchange="angular.element(this).scope().uploadFile()"
+                    type="file" accept=".json" id="fileUploadInput" data-ng-if="haveModel"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-8 col-xs-offset-2 createBot-action-buttons">
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn green-bg radius-0" data-ng-click="createnewModel('Yes')"  data-ng-disabled="createmodelForm.$invalid">Create</button>
+                  </div>
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn red-bg radius-0" data-ng-click=""  data-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- </div> -->
+
+
+
+        <span hidden>
+          <div class="modal-body-content row">
+            <label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Model Name</label><!--style="margin-left: 49px;"-->
+            <span style="margin-right: 5px;"><strong>:</strong></span>
+            <input name="modelname" type="text" data-ng-model="newModel.name" autofocus
+            data-ng-focus="console.log('Input Focused')"
+            data-ng-chage="console.log('Input change')" data-ng-blur="console.log('Input blurred')"
+            required>
+            <span class="validatorText"
+            data-ng-show="createmodelForm.modelname.$touched && createmodelForm.modelname.$invalid">model name is required.</span>
+          </div>
+          <div class="modal-body-content row">
+            <label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Tags</label><!--style="margin-left: 81px;"-->
+            <span style="margin-right: 5px;"><strong>:</strong></span>
+            <input name="modeltags" type="text" data-ng-model="newModel.tags"
+            placeholder="comma separated Tags" data-ng-pattern="/^[a-zA-Z0-9,_-]*$/">
+            <!--<span class="validatorText" ng-show="createmodelForm.modelname.$touched && createmodelForm.modeltags.$errorpattern">Not a valid number!</span>-->
+            <span class="validatorText" ng-show="createmodelForm.modeltags.$error.pattern">Use only "_" and "-" as special Characters</span>
+          </div>
+          <div class="modal-body-content row">
+            <label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Description</label><!--style="float: left;margin-left: 2px;" -->
+            <span style="margin-right: 5px;"><strong>:</strong></span>
+            <textarea rows="2" cols="20"  name="modelDesc" data-ng-model="newModel.desc"
+            ></textarea><!--style="display: inline;margin-left: 3px;"--><!--maxlength="65"-->
+
+          </div>
+          <div class="modal-body-content row">
+            <label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Language</label><!--style="margin-left: 16px;" -->
+            <span style="margin-right: 5px;"><strong>:</strong></span>
+            <input name="modellanguage" type="text" data-ng-model="newModel.language"
+            placeholder="Language">
+          </div>
+          <div class="modal-body-content row">
+            <label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Utterance Sample</label><!--style="margin-left: 16px;" -->
+            <span style="margin-right: 5px;"><strong>:</strong></span>
+            <input name="modelutterance" type="text" data-ng-model="newModel.utteranceSample"
+            placeholder="Sample Utterance">
+          </div>
+
+          <div class="modal-body-content row">
+            <label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Have a model to upload</label><!--style="margin-left: 16px;"-->
+            <span style="margin-right: 5px;"><strong>:</strong></span>
+            <input type="checkbox" data-ng-model="haveModel">
+            <input ng-model="json" name="image_file"
+            onchange="angular.element(this).scope().uploadFile()"
+            type="file" accept=".json" id="fileUploadInput" data-ng-if="haveModel"/>
+          </div>
+        </span>
+        <!--<div class="modal-body-content row">-->
+        <!--<label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Select model Icon</label>&lt;!&ndash;style="margin-left: 16px;"&ndash;&gt;-->
+        <!--<span style="margin-right: 5px;"><strong>:</strong></span>-->
+        <!--</div>-->
+        <!--<div class="modal-body-content">
+        <label>Upload a model Icon:</label>&lt;!&ndash;TODO choose and upload selected Image&ndash;&gt;
+        <input name="uploadmodelIcon" type="file" style="display: inline;">
+        <input type="button" value="Upload"/>
+      </div>-->
+
+    </div>
+    <div class="modal-footer" hidden>
+      <button type="button" data-ng-click="cancelnewModel('No')" class="btn btn-default" data-dismiss="modal">
+        Cancel
+      </button>
+      <button type="button" data-ng-click="createnewModel('Yes')" class="btn btn-primary" data-dismiss="modal"
+      data-ng-disabled="createmodelForm.$invalid">Create
+    </button>
+  </div>
+
+</div>
+</div>
+</div>
+<!--</script>-->
+<style>
+
+</style>

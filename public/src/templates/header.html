@@ -1,0 +1,391 @@
+<!--<section data-ng-include="'public/src/templates/panel.html'"></section>-->
+<header class="simple-normal" data-ng-init="loggedIn=false" data-ng-controller="headerCtrl">
+
+    <!--Loads this controller before user login-->
+    <div data-ng-if="!loggedIn" data-ng-controller="loginHeaderCtrl">
+        <!--Show if not logged in-->
+        <div class="top-bar" ng-class="{'transparent' : !loggedIn}">
+            <div class="logo">
+                <a href="#/login" title="">
+                    <img data-ng-if="loggedIn" src="public/src/images/miracle-logo-light.png" alt="Miracle Software Systems Logo" class="company_logo">
+                    <img data-ng-if="!loggedIn" src="public/src/images/miracle-logo-dark.png" alt="Miracle Software Systems Logo" class="company_logo">
+                </a>
+            </div>
+            <form class="form-inline lform pull-right" hidden>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="text" data-ng-model="login.username" placeholder="Username">
+                    <input type="password" class="form-control" id="pwd" data-ng-model="login.password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary" data-ng-click="signInUser()">Signin</button>
+                <button type="button" class="btn btn-primary registerUser_btn" data-toggle="modal" data-target="#myModal">Register
+                </button>
+            </form>
+        </div>
+
+
+        <div class="container-fulid">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="col-sm-8">
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="background-color: #00aae7;border:1px solid transparent">
+                                            <button type="button" class="close" data-dismiss="modal" style="color:#ffffff;opacity:1" data-ng-click="cancelUserRegistration()">&times;
+                                            </button>
+                                            <h4 class="modal-title" style="color:#ffffff">Registration</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <form data-ng-init="checkPasswordMatch=false">
+                                                    <div class="col-sm-6">
+
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control input-sm requiredInput" id="fname" placeholder="First Name" data-ng-model="registerUser.firstName" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control input-sm" id="lname" placeholder="Last Name" data-ng-model="registerUser.lastName" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="email" class="form-control input-sm" id="email" placeholder="Email" data-ng-model="registerUser.email" required>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <input type="password" class="form-control input-sm" id="uRegister_password" placeholder="Password" data-ng-model="registerUser.password" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="password" class="form-control input-sm" id="uRegister_cPassword" placeholder="Confirm Password" data-ng-model="registerUser.confirmPassword" data-ng-blur="checkPasswordMatch=true" required>
+
+                                                            <label class="uRegister_validation" data-ng-if="(registerUser.password!==registerUser.confirmPassword)&&checkPasswordMatch">Passwords does not match.</label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="tel" class="form-control input-sm" id="uRegister_profileImage" placeholder="upload profile Image" data-ng-model="registerUser.profileImage">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+
+                                                        <div class="form-group">
+                                                            <select class="form-control input-sm" id="oname" data-ng-model="registerUser.organization" data-ng-options="organization as organization.orgName for organization in organizations">
+                                                                <option value="" disabled>Organization</option>
+                                                                <!--<option value="{{organization._orgId}}">-->
+                                                                <!--{{organization.orgName}}-->
+                                                                <!--</option>-->
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control input-sm" id="dname" placeholder="Designation" data-ng-model="registerUser.designation">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <select class="form-control input-sm" name="utype" data-ng-model="registerUser.userType">
+                                                                <option value="" selected>User Type</option>
+                                                                <option value="Admin">Admin</option>
+                                                                <option value="Developer">Developer</option>
+                                                                <option value="Tester">Tester</option>
+
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <input type="tel" class="form-control input-sm" id="phno" placeholder="Phone Number" data-ng-model="registerUser.phoneNumber">
+                                                        </div>
+
+
+                                                        <div class="form-group">
+                                                            <input type="tel" class="form-control input-sm" id="mbno" placeholder="Mobile Number" data-ng-model="registerUser.mobileNumber">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary btn-sm col-sm-12" data-ng-click="registerAUser()" data-dismiss="modal">
+                                                            Submit
+                                                        </button>
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--// Loads this controller if user successfully login-->
+    <div data-ng-if="loggedIn" data-ng-controller="homeHeaderCtrl">
+
+        <div class="top-bar">
+            <!--Show If logged in-->
+            <div class="logo">
+                <a href="#/home" title="">
+                    <img src="public/src/images/miracle-logo-light.png" alt="Miracle Software Systems Logo" class="company_logo">
+                </a>
+            </div>
+
+            <div class="menu-options">
+                <span class="menu-action"><i></i></span>
+            </div>
+            <!--<div class="search-dashboard">
+      <div class="responsive-search">
+      <i class="fa fa-search"></i>
+    </div>
+    <form>
+    <input type="text" placeholder="Search here"/>
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+</div>-->
+            <!-- Search Dashboard -->
+
+            <div class="top-bar-quick-sec">
+
+                <!--<span class="open-panel" data-ng-show="(currentPath != /home)"><i class="fa fa-comments-o fa-3x"></i></span>-->
+                <!--<span id="toolFullScreen" class="full-screen-btn"><i class="fa fa-arrows-alt"></i></span>-->
+                <div class="name-area">
+                    <a href="javascript:void(0)" title="">
+                        <img src="http://placehold.it/100x100" title="user Image when the picture was uploaded" alt="" />
+                        <!--<img src={{user.profileImage}} alt="User Profile Image" />-->
+                        <strong>{{user.firstName+" "+user.lastName}} <i class="fa fa-caret-down"></i></strong>
+                    </a>
+                </div>
+
+                <ul class="quick-notify-section custom-dropdowns" hidden>
+                    <li class="message-list dropdown">
+                        <span><i class="fa fa-bell-o"></i>
+                            <strong class="skyblue-bg">7</strong>
+                        </span>
+                        <div class="message drop-list">
+                            <span>You have 4 New Messages</span>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)" title="">
+                                        <span>
+                                            <img src="http://placehold.it/40x40" alt="" />
+                                        </span><i>Labrina Scholer</i>Hi! How are you?...
+                                        <h6>2 min ago..</h6>
+                                        <p class="status blue-bg">New</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" title="">
+                                        <span>
+                                            <img src="http://placehold.it/40x40" alt="" />
+                                        </span><i>Jonathan</i>Hi! How are you?...
+                                        <h6>2 min ago..</h6>
+                                        <p class="status red-bg">Unsent</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" title="">
+                                        <span>
+                                            <img src="http://placehold.it/40x40" alt="" />
+                                        </span><i>Barada knol</i>Hi! How are you?...
+                                        <h6>2 min ago..</h6>
+                                        <p class="status green-bg">Reply</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" title="">
+                                        <span>
+                                            <img src="http://placehold.it/40x40" alt="" />
+                                        </span><i>Samtha Gee</i>Hi! How are you?...
+                                        <h6>2 min ago..</h6>
+                                        <p class="status">New</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <a href="inbox.html" title="">See All Messages</a>
+                        </div>
+                        <!-- Message Drop List -->
+                    </li>
+                </ul>
+                <!--<span class="name-area">
+  <button class="btn btn-primary register-open-panel register-btn">Register</button>
+</span>-->
+            </div>
+
+            <div class="user-services">
+
+                <div class="user-services-contents">
+                    <!--<div><a href="#/userProfile"><i class="fa fa-user-circle"></i> User Profile</a></div>-->
+                    <!--removed these after the requirement is clear-->
+                    <!--<div><a href="#/settings"><i class="fa fa-gear"></i> Settings</a></div>-->
+                    <!--<hr style="margin: 10px 0px">-->
+                    <div data-ng-click="signOutUser()">Sign out</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="register-slide-panel">
+            <center>
+                <div class="tab-content panel-tab">
+                    <div id="panel-tab1" class="tab-pane fade in active">
+                        <br>
+                        <div class="recent-mails-widget">
+
+                            Email id:
+                            <br>
+                            <input type="text" data-ng-model="new_emailid">
+                            <br> Password:
+                            <br>
+                            <input type="Password" data-ng-model="new_passwd">
+                            <br> Confirm Password:
+                            <br>
+                            <input type="Password" data-ng-model="c_new_passwd">
+                            <br>
+                            <br><a class="red-bg" data-ng-click="check">Submit</a>
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </div>
+
+
+        <!-- Top Bar  END-->
+        <div class="side-menu-sec">
+            <!--id="header-scroll"-->
+            <!--NAv Bar Start-->
+            <div class="quick-report-side">
+                <span>USER REPORT</span>
+                <ul>
+                    <li>
+                        <div>
+                            <strong>{{bots.length}}</strong>
+                            <span>Models</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>{{totalIntents}}</strong>
+                            <span>Intents</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>{{totalEntities}}</strong>
+                            <span>Entities</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="side-menus" style="margin-top: 10px">
+                <span></span>
+                <nav>
+                    <ul class="parent-menu">
+                        <li style="border-bottom: 2px solid #ccc">
+                            <a href="#/home" title=""><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
+                        </li>
+
+                        <li class="rendered-models-list" data-ng-repeat="bot in bots | orderBy: '-'+ bot.createdOn">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <a title="{{bot.createdOn | date:'short'}}" class="rendered-botName">
+                                        <span data-ng-click="takeToBotContents(bot)">{{bot.name}}</span>
+                                    </a>
+                                </div>
+                                <div class="col-sm-3" hidden>
+                                    <span class="fa fa-fw fa-chevron-down" data-toggle="collapse" href="#{{bot._id}}" aria-expanded="false" aria-controls="{{bot._id}}" style="cursor: pointer;"></span>
+                                </div>
+                            </div>
+                            <div class="collapsible collapse" style="color:#fff;" id="{{bot._id}}">
+                                <ul class="list-unstyled">
+                                    <li><a href="javascript:void(0)" data-ng-click="switchModelTab(bot,2)">Entities</a></li>
+                                    <li><a href="javascript:void(0)" data-ng-click="switchModelTab(bot,3)">Intents</a></li>
+                                    <li><a href="javascript:void(0)" data-ng-click="switchModelTab(bot,5)">Train and Publish</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+
+                    </ul>
+
+
+                </nav>
+            </div>
+            <!--<div class="side-menus" id="action-menu" style=" display: none;"> NOW ACTIONS MENU IS TABS
+  <span>
+  <strong>ACTIONS</strong>
+</span>
+<nav>
+<ul class="parent-menu">
+<li>
+<a href="#/dashboard" title=""><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
+</li>
+<li><a href="#/entities" title=""><i class="fa fa-list"></i> <span>Entities</span></a></li>
+<li><a href="#/intents" title=""><i class="fa fa-linode"></i><span>Intents</span></a></li>
+<li><a href="#/summary" title=""><i class="fa fa-list-alt"></i><span>Summary</span></a></li>
+<li><a href="#/pubish&Train" title=""><i class="fa fa-check-square"></i><span>Publish & Train</span></a></li>
+</ul>
+</nav>
+</div>-->
+
+        </div>
+        <!--Nav Bar Ends-->
+    </div>
+</header>
+<style>
+.user-services-contents>div>a {
+    color: #505050;
+}
+
+.user-services-contents>div:hover {
+    background-color: #f1f1f1;
+    font-size: 1.1em;
+}
+
+.user-services-contents {
+    display: none;
+}
+
+.uRegister_validation {
+    color: red;
+    font-size: .75em;
+}
+
+.requiredInput:after {
+    content: " *";
+    color: red
+}
+
+/*asterisk for required field*/
+
+input:-webkit-autofill {
+    /*//make the autofill fields white*/
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+
+/*.lfooter{
+background-color: #312f2f;
+height: 50px;
+padding: 16px;
+}
+.lfooter a{
+color:#ffffff;
+}*/
+
+.registerUser_btn {
+    margin-left: 5px;
+}
+
+.company_logo {
+    width: 130px;
+    height: 40px
+}
+
+.lform {
+    color: #ffffff;
+    margin-right: 20px;
+    margin-top: 18px
+}
+
+.transparent {
+    background-color: transparent !important;
+}
+</style>

@@ -1,0 +1,16 @@
+{
+	"_orgId":"MSS_45625",
+	"_emailId":"dpola@miraclesoft.com",
+	"firstName":"Dinesh",
+	"lastName":"Pola",
+	"designation":"",
+	"phoneNumber":"248-233-5050",
+	"mobileNumber":"248-233-5050",
+	"password"	:"HASHED VALUE",
+	"profileImage":"<Path of the Image/Unique Id>",
+	"userType":"admin/user",
+	"createdOn":"",
+	"createdBy":"",
+	"updatedOn":"",
+	"updatedBy":""
+}

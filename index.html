@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" data-ng-app="mTrainer" ng-cloak>
+<!--<![endif]-->
+
+<head>
+
+    <!-- Meta-Information -->
+    <title>mTrainer </title>
+    <meta charset="utf-8">
+    <meta name="description" content="mTrainer is a solution which fulfills the user's dream of having their own NLP engine on-premise or on their cloud.">
+    <!--<meta name="keywords" content="admin, admin dashboard, angular admin, bootstrap admin, dashboard, modern admin, responsive admin, web admin, web app, bitlers">-->
+    <meta name="author" content="MIRACLE SOFTWARE SYSTEMS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
+    <link rel="stylesheet" href="public/src/css/lib/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">-->
+    <link rel="stylesheet" href="public/src/css/lib/angular-growl.min.css">
+
+    <!-- mTrainer CSS Styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <!-- Slick slider -->
+    <link rel="stylesheet" href="public/src/css/lib/slick.css">
+    <link rel="stylesheet" href="public/src/css/lib/icons.css">
+    <link rel="stylesheet" href="public/src/css/main.css">
+    <link rel="stylesheet" href="public/src/css/lib/sweet-alert.css">
+    <!--Sweet alert alerts styles/ can be done from npm as well-->
+    <link rel="stylesheet" href="public/src/css/responsive.css">
+    <link rel="stylesheet" href="public/src/css/mystyles.css">
+    <link rel="stylesheet" href="public/dist/css/style.min.css">
+
+    <link rel="shortcut icon" type="image/ico" href="public/src/images/favicon.ico" />
+
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+    <!-- Our Website Content Goes Here -->
+    <div data-ng-include='"public/src/templates/header.html"'></div>
+
+    <div class="main-content" data-ng-view></div>
+
+    <!--<footer style="height: 20px; background-color: #3b3f51; bottom:0px;width: 100%; position: fixed; z-index: 1; color: #fff;">
+  <div style="margin: 1px 15px;">
+  <span style="margin-right: 5px">&copy;</span>
+  <span style="font-weight: 500;">Miracle Software Systems</span>
+</div>
+</footer>-->
+
+
+    <!-- Vendor: Angular, followed by our custom Javascripts -->
+    <!--<script src="https://maps.google.com/maps/api/js?key=AIzaSyDrlCWSCEGTYat1yFIybvtjXe6v24wXY04" async="" type="text/javascript"></script>-->
+    <script src="public/src/js/lib/jquery-2.1.3.js"></script>
+    <script src="public/src/js/lib/angular.min.js"></script>
+    <script src="public/src/js/lib/ng-lodash.min.js"></script>
+    <script src="public/src/js/lib/slick.min.js"></script>
+    <script src="public/src/js/lib/angular-sanitize.min.js"></script>
+    <script src="public/src/js/lib/angular-animate.min.js"></script>
+    <script src="public/src/js/lib/angular-route.min.js"></script>
+    <script src="public/src/js/lib/angular-local-storage.min.js"></script>
+    <!--// for making use of the local storage and Session storage in the browser-->
+    <script src="public/src/js/lib/angular-cookies.min.js"></script>
+    <!--// for making use of the cookies in the browser-->
+    <script src="public/src/js/lib/angular-modal-service.min.js"></script>
+    <script src="public/src/js/lib/angular-growl.min.js"></script>
+    <!--// For Growl Notifications-->
+    <script src="public/src/js/lib/SweetAlert1.min.js"></script>
+    <!--// For Growl Notifications-->
+    <script src="public/src/js/lib/SweetAlert.min.js"></script>
+    <!--// For Growl Notifications-->
+    <script src="https://cdn.rawgit.com/Luegg/angularjs-scroll-glue/master/src/scrollglue.js"></script>
+    <!--Scroll to bottom angular directive-->
+
+
+
+
+
+    <!--&lt;!&ndash; (Optional) Latest compiled and minified JavaScript translation files &ndash;&gt;-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>&ndash;&gt;-->
+
+    <!-- Our Website Javascripts -->
+
+
+    <!--main.js for mTrainer Dev-->
+
+
+    <script src="public/src/js/lib/bootstrap.min.js"></script>
+    <script src="public/src/js/main.js"></script>
+    <!--Factories -->
+    <script src="public/src/js/services/botFactory.js"></script>
+    <script src="public/src/js/services/reusableFactory.js"></script>
+    <script src="public/src/js/services/userService.js"></script>
+    <script src="public/src/js/services/nlpFactory.js"></script>
+    <!--Controllers-->
+    <script src="public/src/js/controllers/botContents_controller.js"></script>
+    <script src="public/src/js/controllers/chatCtrl_controller.js"></script>
+    <script src="public/src/js/controllers/homeHeaderCtrl_controller.js"></script>
+    <script src="public/src/js/controllers/createBotModalCtrl_controller.js"></script>
+    <script src="public/src/js/controllers/sortCtrl_controller.js"></script>
+    <script src="public/src/js/controllers/loginHeaderCtrl_controller.js"></script>
+    <script src="public/src/js/controllers/headerCtrl_controller.js"></script>
+    <script src="public/src/js/controllers/loginContentsCtrl_controller.js"></script>
+    <script src="public/src/js/controllers/settingsCtrl_controller.js"></script>
+    <script src="public/src/js/controllers/userProfileCtrl_controller.js"></script>
+    <script src="public/src/js/controllers/uploadModelCtrl_controller.js"></script>
+
+    <!--MINIFIED FILE-->
+    <!--<script src="public/dist/js/app.min.js"></script>-->
+
+    <script src="public/src/js/lib/app.js"></script>
+
+</body>
+
+</html>

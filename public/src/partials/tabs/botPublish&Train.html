@@ -1,0 +1,66 @@
+<h3> Contents for Publishing and Training the model</h3>
+<div class="container">
+    <h1>Test your application</h1><br/>
+    <p class="para">Whenever you make updates in your current model, you’ll need to train your app before testing and publishing it. When you 'train' a model, LUIS generalizes from the examples you have labeled, and develops code to recognize relevant intents and entities in the future, thus improving its classification accuracy...
+        <a data-toggle="collapse" data-target="#demo" style="text-decoration:none;cursor:pointer;">Learn More</a></p>
+    <div id="demo" class="collapse">
+        <p class="para1"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Before you start testing, clickto train the current model on the latest updates. Note that you'll not be able to train your app until you add utterances for all your intents.
+            Interactive testing enables you to test both the current and published versions of your app and compare their results in one screen. By default, testing runs on the current trained model only. To enable testing for a published model, you need to explicitly enable itbecause it is counted as hits and will be deducted from your key balance. If you have not published your application yet, the check box will be disabled.
+            The test pane is on the left side of the screen and it is where you can type test utterances in the text box and press Enter to submit it to your app. To review the result of a previous utterance you typed, just click it in the test view and its result will be displayed on the right.
+            The result view is on the right side of the screen and it is where your LUIS app returns the test result; i.e. the predicted interpretation of the utterance.
+            In case of interactive testing on both trained and published models together, an entity may have a different prediction in each model. In the test result, this entity will be distinguished by a red underline.If you hover over the underlined entity, you can view the entity prediction in both trained and published models.</p>
+    </div>
+
+    <br/>
+    <button type="button" class="btn btn-primary train">Train Application</button>&nbsp &nbsp &nbsp
+    <span style="font-size:17px; font-weight:500">Last train: Apr 18, 2017, 11:52:38 AM</span>&nbsp &nbsp&nbsp
+    <span style="font-size:24px;">|</span>&nbsp &nbsp
+    <span style="font-size:17px; font-weight:500">Last publish: Apr 18, 2017, 11:54:50 AM</span>
+    <span><h2>Interactive Testing &nbsp &nbsp <a class="batch" href="#">Batch Testing</a></h2></span>
+    <br/><br/><br/>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="box">
+ <span> <input class="adding" placeholder="Type a entities here" id="input"><button  class="submit">
+
+<i class="fa fa-arrow-right arrow" aria-hidden="true"></i></button>
+</span> <hr class="hori">
+
+
+
+                <div id="newDivs">
+                </div>  </div></div>
+        <div class="col-sm-6">
+            <div class="box">
+                <h2 style="color:#00aae7">&nbsp &nbspCurrent version results</h2>
+                <p class="para2">intent.Greetings (0.22)intent.ThankYou (0.18)<br/>intent.HealthCheck (0.11)Thank you (0.07)<br/>intent.Capabilities (0)<br/>intent.NeverMind (0)<br/>intent.OnBoarding (0)<br/>intent.interfaceDevLoe (0)
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+<script>
+    $('.submit').click(function() {
+        var text = $('#input').val();
+        $('#newDivs').append('<div>' + text + '</div>');
+    });
+</script>
+
+
+
+
+<button class="btn btn-success" data-ng-click="publish()">Train</button>
+<button class="btn btn-success" data-ng-click="isTraining ==='hide'? isTraining ='show' : isTraining ='hide'">Test</button>
+
+<span data-ng-show="isTraining =='show'"><span class="throbber">Training&#8230;</span><sub>Training&#8230;</sub></span>
+<span data-ng-show="trained =='show'">Training Done Successfully</span>
+<!--<div data-ng-show="isTraining =='show'">Show when true</div>
+{{isTraining}}-->
+<div><p>
+    Last 5 Activities
+</p></div>

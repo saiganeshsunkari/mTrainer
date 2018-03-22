@@ -1,0 +1,332 @@
+/*[
+  {
+    "_id": "597f7c251dd7b32280840469",
+    "intent": "orders",
+    "utterances": [
+      {
+        "utterance": "order a large pizza",
+        "entities": [
+          {
+            "entity": "size",
+            "value": "large",
+            "start": 8,
+            "end": 13
+          }
+        ]
+      },
+      {
+        "utterance": "order a small cheese pizza",
+        "entities": [
+          {
+            "entity": "size",
+            "value": "small",
+            "start": 8,
+            "end": 13
+          },
+          {
+            "entity": "Pizza_type",
+            "value": "cheese pizza",
+            "start": 14,
+            "end": 26
+          }
+        ]
+      },
+      {
+        "utterance": "order a medium chicken pizza with 12 wings",
+        "entities": [
+          {
+            "entity": "pizza_size123",
+            "value": "medium",
+            "start": 8,
+            "end": 14
+          },
+          {
+            "entity": "Pizza_type",
+            "value": "chicken pizza",
+            "start": 15,
+            " end": 28
+          },
+          {
+            "entity": "  wings",
+            "  value ": " 12wings ",
+            "start": 34,
+            "end ": 42
+          }
+        ]
+      }
+    ]
+  }
+]*/
+[
+  {
+    "_id": "597f7c251dd7b32280840469",
+    "intent": "orders"
+    "utterances": [
+      {
+        "utterance": "order a large pizza",
+        "entities": [
+          {
+            "entity": "size",
+            "value": "large",
+            "start": 8,
+            "end": 13
+          },
+          {
+            "e
+            ntity
+            ":"
+            pizza_size123
+            ","
+            value
+            ":"
+            large
+            pizza
+            ","
+            start
+            ":8,"
+            end
+            ":19}]},{"
+            utterance
+            ":"
+            order
+            a
+            small
+            cheese
+            pizza
+            ","
+            entities
+            ":[{"
+            entity
+            ":"
+            size
+            ","
+            value
+            ":"
+            small
+            ","
+            start
+            ":8,"
+            end
+            ":
+            13
+          },
+          {
+            "entity": "Pizza_type",
+            "value": "cheese pizza",
+            "start": 14,
+            "end": 26
+          }
+        ]
+      },
+      {
+        "utterance": "order a medium chicken pizza with 12 wings",
+        "entities": [
+          {
+            "entity": "pizza_size123",
+            "
+            value
+            ":"
+            medium
+            ","
+            start
+            ":8,"
+            end
+            ":14},{"
+            entity
+            ":"
+            Pizza_type
+            ","
+            value
+            ":"
+            chicken
+            pizza
+            ","
+            start
+            ":15,"
+            end
+            ":28},{"
+            entity
+            ":"
+            wings
+            ","
+            value
+            ":"
+            12
+            wings
+            ","
+            start
+            ":34,"
+            end
+            ":42}]}]},{"
+            _i
+            d
+            ":"
+            597f7c251dd7b32280840469
+            ","
+            intent
+            ":"
+            orders
+            ","
+            utterances
+            ":[{"
+            utterance
+            ":"
+            order
+            a
+            large
+            pizza
+            ","
+            entities
+            ":[{"
+            entity
+            ":"
+            size
+            ","
+            value
+            ":"
+            large
+            ","
+            start
+            ":8,"
+            end
+            ":13},{"
+            entity
+            ":"
+            pizza_size123
+            ","
+            value
+            ":"
+            large
+            pizza
+            ","
+            start
+            ":8,"
+            end
+            ":19}]},{"
+            utterance
+            ":"
+            order
+            a
+            small
+            cheese
+            pizza
+            ","
+            entities
+            ":[{"
+            entity
+            ":"
+            size
+            ","
+            value
+            ":"
+            small
+            ","
+            start
+            ":8,"
+            end
+            ":13},{
+            "entity": "Pizza_type",
+            "value": "cheese pizza",
+            "start": 14,
+            "end": 26
+          }
+        ]
+      },
+      {
+        "utterance": "order a medium chicken pizza with 12 wings",
+        "entities": [
+          {
+            "entity": "pizza_size123",
+            "value
+            ":"
+            medium
+            ","
+            start
+            ":8,"
+            end
+            ":14},{"
+            entity
+            ":"
+            Pizza_type
+            ","
+            value
+            ":"
+            chicken
+            pizza
+            ","
+            start
+            ":15,"
+            end
+            ":28},{"
+            entity
+            ":"
+            wings
+            ","
+            value
+            ":"
+            12
+            wings
+            ","
+            start
+            ":34,"
+            end
+            ":42}]}]},{"
+            _id
+            ":"
+            5
+            97f7c271dd7b3228084046a
+            ","
+            intent
+            ":"
+            add
+            ","
+            utterances
+            ":[{"
+            utterance
+            ":"
+            add
+            soda
+            with
+            the
+            order
+            ","
+            entities
+            ":[{"
+            entity
+            ":"
+            soda
+            ","
+            value
+            ":"
+            soda
+            ","
+            start
+            ":4,"
+            end
+            ":8}]},{"
+            utterance
+            ": "ass chocolava to the order",
+            "entities": []
+          },
+          {
+            "utterance": "add cheese pasta to the order",
+            "entities": []
+          },
+          {
+            "utterance": "add a large fountain to the order",
+            "entities": []
+          },
+          {
+            "utterance": "add a large pizza",
+            "entities": [
+              {
+                "entity": "pizza_size123",
+                "value": "large pizza",
+                "start": 6,
+                "end": 17
+              }
+            ]
+          }
+        ]
+      }
+    ]

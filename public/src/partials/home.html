@@ -1,0 +1,220 @@
+<section class="section-dashboard-panel">
+  <div class="panel-content">
+    <div class="main-title-sec">
+      <div class="row">
+        <div class="col-md-3 column" hidden>
+          <div class="heading-profile">
+            <h2>Dashboard</h2>
+          </div>
+        </div>
+        <!-- <div class="pull-right col-md-3 column">
+        <div class="heading-profile">
+        <h2>{{organization}}</h2>
+        <span>Organization</span>
+      </div>
+    </div>-->
+    <div growl class="dashboard_growl"></div>
+  </div>
+</div><!-- Heading Sec -->
+
+<ul class="breadcrumbs" hidden>
+  <li><a href="javascript:void(0)" title="">Dashboard</a></li>
+</ul>
+
+<div class="main-content-area">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget blank">
+        <div class="row start-new-wrapper text-center" ng-show="models.legnth == 0">
+          <div class="start-new-well">
+            <p class="start-new-header">Hey there! You don't seem to have any models yet!</p>
+            <p class="start-new-info">Models are a great way to start teaching your bot how to speak, what to speak and how to behave.</p>
+            <p class="start-new-cta">Go ahead <br><button class="btn btn-lg" data-ng-click="showAModal()">Create a New Model</button></p>
+          </div>
+        </div>
+
+        <div class="row" ng-show="models.legnth != 0">
+          <div class="row">
+            <div class="col-md-4">
+              <button class="c-btn medium green-bg" data-ng-click="showAModal()"><span class="fa fa-fw fa-plus"></span> Create a Model</button>
+            </div>
+
+            <!--{{message}}-->
+
+            <div class="input-group col-md-3 col-sm-4 col-xs-6 pull-right">
+              <!--<i class="fa fa-search"></i>-->
+              <input type="text" placeholder="Search model..." data-ng-model="searchModel"
+              data-ng-change="searchModel"
+              class="t bot-search-dshbrd form-control"
+              onkeyup="if(this.scrollWidth > this.clientWidth)this.style.width=this.scrollWidth+'px';">
+              <span class="input-group-addon"><i class="fa fa-search"></i></span>
+            </div>
+
+            <!--<div class="quick-btn-title">--> <!-- MOVED this functionality to Create  a Model-->
+            <!--&lt;!&ndash;<a href="javascript:void(0)" title=""><i class="fa fa-plus"></i> New Tasks</a>&ndash;&gt;-->
+            <!--<a href="javascript:void(0)" title="" data-ng-click="uploadtrainedModel()"><i-->
+            <!--class="fa fa-cloud-upload"></i> Upload Model</a>-->
+            <!--</div>-->
+          </div>
+          <div class="row model-cards">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 model-card"
+            data-ng-repeat="model in models | orderBy : '-' + model.createdOn | filter : searchModel "
+            data-ng-click="takeToBotContents(model)">
+            <div class="widget inbox-nav card-1">
+              <div class="admin-follow">
+                <h2 title="{{model.name}}">{{model.name | limitTo: 9}}</h2>
+                <p class="small publishMode" publishMode="{{model.publishMode}}">{{model.publishMode}}</p>
+                <p class="model-actions">
+                  <span class="fa fa-fw fa-pencil"
+                  title="Edit model {{model.name}}"
+                  data-ng-click="takeToBotContents(model)"
+                  ></span>
+                  <span class="fa fa-fw fa-list" style="margin-left: 20px; margin-right: 20px;"
+                  title="Summary of model {{model.name}}"
+                  data-ng-click="loadSummarytab()"
+                  ></span>
+                  <span class="fa fa-fw fa-trash"
+                  title="Delete model {{model.name}}"
+                  data-ng-click="deleteModel(model._modelId)"
+                  ></span>
+                </p>
+              </div>
+              <div class="mail-menu">
+                <ul>
+                  <li><a title="">Intents <span class="red-bg">{{model.intents.length}}</span></a></li>
+                  <li><a title="">Entities<span class="blue-bg">{{model.entities.length}}</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!--main_content END-->
+
+</div><!-- Panel Content -->
+</section>
+
+<style>
+.model_stats_dash {
+  text-align: right;
+  padding: 0px 8px;
+  font-size: 0.9em;
+  line-height: 120%;
+}
+.model_stats_result_dash{
+  text-align:left;
+}
+
+.quick-report-widget > h5 {
+  background: #f6f6f6 none repeat scroll 0 0;
+  border-top: 1px solid #e1e1e1;
+  color: #727272;
+  float: left;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 0.4px;
+  margin: -16px 0 0;
+  padding: 20px 0 10px;
+  width: 100%;
+}
+
+.model_ops:hover {
+  background-color: whitesmoke;
+  font-size: 1.2em;
+}
+
+.dashboard_growl > .growl {
+  position: fixed;
+  top: 70px;
+  right: 10px;
+  float: right;
+  width: 250px;
+}
+
+/*h5  .slick-slider {*/
+/*margin-bottom: 0px;*/
+/*}*/
+
+.quick-report-widget > span {
+  color: #989898;
+  float: left;
+  font-family: Lato;
+  font-size: 13px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.quick-report-widget > h4 {
+  color: #404040;
+  float: left;
+  font-family: Lato;
+  font-size: 27px;
+  letter-spacing: -0.3px;
+  margin: 7px 0 12px;
+  width: 100%;
+}
+
+.quick-report-widget > .model_ops {
+  color: black;
+  /*margin-top: 45px;*/
+}
+
+.back > .quick-report-widget {
+  background-color: #CCCCCC;
+  min-height: 100%;
+  color: black;
+}
+
+/*FLIP FOR DASHBOARD MODELS*/
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000px;
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.quick-report-widget > .flip-container, .front, .back {
+  width: 100%;
+  height: 85px;
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+}
+
+/*FLIP FOR DASHBOARD MODELS END*/
+</style>

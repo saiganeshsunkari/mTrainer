@@ -1,0 +1,123 @@
+<div class="container-fluid">
+  <div class="model-info-wrapper">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="description-shown-wrapper" ng-show="activeModel.description && !editableDescription">
+          <p class="description-shown">{{activeModel.description}}</p>
+          <div class="overlay" data-ng-click="editableDescription = !editableDescription">
+            <span class="fa fa-fw fa-pencil"></span><br><span class="text">Click to Edit</span>
+          </div>
+        </div>
+        <p class="description-hidden" style="cursor: pointer" ng-show="!activeModel.description && !editableDescription" data-ng-click="editableDescription = !editableDescription">
+          Your model's description goes here. <br>
+          Click to add new description.
+        </p>
+        <textarea class="form-control" id="modelDesc" name="modelDesc" rows="7" cols="80" data-ng-show="editableDescription" data-ng-model="activeModel.description"></textarea>
+        <div class="" style="margin-top: -30px; float: right" data-ng-show="editableDescription">
+          <button class="btn green-bg btn-sm"
+          data-ng-click="saveModelChanges(['description']); editableDescription=false"><i class="fa fa-fw fa-check"></i></button>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="model-info-label">Created On</p>
+            <p>{{activeModel.createdOn | date:'medium'}}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="model-info-label">Last Trained</p>
+            <p>{{activeModel.trainedOn | date:'medium'}}</p>
+          </div>
+        </div>
+        <div class="row" style="margin-top:15px;">
+          <div class="col-md-12">
+            <p><span class="model-info-label">Last Published : </span> <span>{{activeModel.publishedOn | date:'medium'}}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="model-url-wrapper row" ng-if="activeModel.modelURL">
+    <div class="col-lg-12">
+    <div class="input-group">
+      <span class="input-group-addon" id="url-input-label">Your RASA Model URL : </span>
+      <input type="text" id="rasaLinkInput" class="form-control" placeholder="RASA Model URL" value="{{activeModel.modelURL}}" readonly>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" title="copy text to clipboard" data-ng-click="copyText('#rasaLinkInput', $event)"><span class="fa fa-fw fa-copy"></span></button>
+      </span>
+    </div>
+  </div>
+</div>
+
+  <div class="model-controls-wrapper2">
+    <div class="row model-controls-wrapper-header">
+      <div class="col-md-12">
+        <p class="h4">
+          <span class="content">CONTROL PANEL</span>
+          <span class="small stats-info pull-right" style="padding-left:5px;">{{activeModel.intents.length}} intents</span>
+          <span class="small stats-info pull-right">{{activeModel.entities.length}} entitites |</span>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="each-cta text-center col-md-3">
+        <button class="btn green-bg radius-0 btn-block" style="font-weight:500;" data-ng-click="trainModel()" ng-disabled="training">TRAIN</button>
+        <p>Train this model to upload it to the RASA NLU and prepare it to be used.</p>
+      </div>
+      <div class="each-cta text-center col-md-3">
+        <button class="btn skyblue-bg radius-0  btn-block" style="font-weight:500;"
+        data-ng-click="publishModel()" ng-disabled="!activeModel.trainedOn || training" title="Must train before publish">PUBLISH</button>
+        <p>Publish this model to get a model secret that you can use to access your RASA model.</p>
+      </div>
+      <div class="each-cta text-center col-md-3">
+        <button class="btn blue-bg radius-0  btn-block" style="font-weight:500;" data-ng-click="exportCurrentModel()">EXPORT</button>
+        <p>Export this model in a JSON format.</p>
+      </div>
+      <div class="each-cta text-center col-md-3">
+        <button class="btn red-bg radius-0  btn-block" style="font-weight:500;" disabled>DELETE</button>
+        <p>Permanantly delete this model. This cannot be undone!</p>
+      </div>
+    </div>
+    <div class="row model-controls-wrapper-header" hidden>
+      <div class="col-md-12">
+        <p class="h4"><span class="content">Statistics</span></p>
+      </div>
+    </div>
+    <div class="row model-stats-wrapper">
+      <div class="col-md-9">
+        <div class="training-progress">
+          <span class="training-ongoing" data-ng-show="training">
+            <h3 ng-click="fiinsh()"><i class="fa fa-cog fa-spin fa-2x fa-fw" id="training-progress-spinner"></i> Training model in RASA.</h3>
+            <div class="bar">
+              <div class="progress"></div>
+            </div>
+          </span>
+          <span class="training-complete" data-ng-show="!training && trainingComplete && !publishing">
+            <h3><i class="fa fa-check fa-2x fa-fw pop"></i> Training Complete.</h3>
+          </span>
+        </div>
+        <div class="publish-output" data-ng-if="publishing">
+          <h5 style="font-size: 17px;">Publication Details</h5>
+          <div class="input-group">
+            <span class="input-group-addon" id="secret-input-label">Your BOT Secret : </span>
+            <input type="text" id="botSecretInput" class="form-control" placeholder="BOT Secret" value="{{token}}" aria-describedby="basic-addon2" readonly>
+            <span class="input-group-addon" title="copy text to clipboard" data-ng-click="copyText('#botSecretInput', $event)"><span class="fa fa-fw fa-copy"></span></span>
+          </div>
+          <div class="secret-info" style="margin-top:5px;">
+            <p>* Your current bot secret will only be displayed once. Please make sure you copy it somewhere safe.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 model-stats" data-ng-if="!publishing && !training" hidden>
+        <div class="model-stats-info-card">
+          <p class="content-wrapper"><span class="content">{{activeModel.intents.length}}</span></p>
+          <p class="content-wrapper-label">Intents</p>
+        </div>
+        <div class="model-stats-info-card">
+          <p class="content-wrapper"><span class="content">{{activeModel.entities.length}}</span></p>
+          <p class="content-wrapper-label">Entities</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

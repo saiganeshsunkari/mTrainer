@@ -1,0 +1,32 @@
+{  
+   "emailId":"dpola@miraclesoft.com",
+   "bot_accessibility":[  
+      {  
+         "_botId":"mira_05172017133359",
+         "roles":[  
+            {  
+               "roleName":"tester",
+               "priority":"1"
+            }
+         ]
+      },
+      {  
+         "_botId":"itsupport_05172017133359",
+         "roles":[  
+            {  
+               "roleName":"admin",
+               "priority":"1"
+            }
+         ]
+      },
+      {  
+         "_botId":"pizzahut_05172017133359",
+         "roles":[  
+            {  
+               "roleName":"developer",
+               "priority":"1"
+            }
+         ]
+      }
+   ]
+}

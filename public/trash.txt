@@ -1,0 +1,406 @@
+<table clas="table" class="entities_table" hidden>
+  <tr class="tr" data-ng-repeat="entity in activeModel.entities">
+    <td class="td col">
+      <span id="entity_{{$index}}"
+      data-ng-dblclick="editEntity($index, entity)">{{entity.entityName}}</span>
+      <input class="input" type="text" id="input_{{$index}}" data-ng-model="renamedEntity.name"
+      data-ng-keypress="($event.which === 13)?editEntity($index):0">
+      <!--placeholder="Rename the entity"-->
+    </td>
+    <td class="td">
+      <div>
+        <!--<input type="text"  data-ng-model="dynamicObjects[entity.entityName]" ng-keypress="($event.which === 13)?editEntity($index):0" data-ng-show="enableEditingEntity">-->
+
+        <button class="flat-btn1" data-ng-click="editEntity($index, entity)"><i
+          id="button_{{$index}}" class="fa fa-edit"></i></button>
+          <button class="flat-btn1 deactive" data-ng-click="noChange($index)" id="button1_{{$index}}">
+            <i class="fa fa-remove" title="Discard editing"></i></button>
+          </div>
+        </td>
+        <td class="td">
+          <button class="flat-btn1" data-ng-click="removeEntity(entity)" title="Delete Entity"><i
+            class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+      </table>
+
+
+      function checkForIntents(currentIntents, brandNewIntent) {
+
+          if (brandNewIntent.intent != undefined && brandNewIntent.intent != "") {
+              var boolArr = [];
+              console.log(currentIntents.length);
+              for (var i = 0; i < currentIntents.length; i++) {
+                  var bool = false;
+
+                  if (!Array.isArray($scope.intents)) {
+                      $scope.intents = [];
+                      intentsArray.push(brandNewIntent);
+                      $scope.intents.push(brandNewIntent);
+                      console.log(intentsArray);
+                  } else {
+                      while (currentIntents[i].intent.toUpperCase() == brandNewIntent.intent.toUpperCase()) {
+                          console.log('while');
+                          bool = true;
+                          break;
+                      }
+                  }
+                  boolArr.push(bool);
+
+              }
+          } else {
+              growl.addErrorMessage("Please enter a valid intent  ");
+          }
+
+          Array.prototype.contains = function(obj) {
+              var i = this.length;
+              while (i--) {
+                  if (this[i] === obj) {
+                      return true;
+                  }
+              }
+              return false;
+          }
+          console.log(boolArr);
+          console.log(boolArr.contains(true));
+
+          return boolArr.contains(true);
+
+      }
+
+
+      //tabs navigation
+      <ul style="margin-bottom:25px;" hidden><!--class="tabs-ul"-- data-ng-init=tab=1-->
+          <li class="tab-title filter" data-ng-click="setTab(1)" data-ng-class="{active:tab===1}">
+              <i class="fa fa-dashboard"></i>
+              <span>Dashboard</span>
+          </li>
+          <li class="tab-title filter" data-ng-click="setTab(2)" data-ng-class="{active:tab===2}">
+              <i class="fa fa-puzzle-piece"></i>
+              <span>Entities</span>
+          </li>
+          <li class="tab-title filter" data-ng-click="setTab(3)" data-ng-class="{active:tab===3}">
+              <i class="fa fa-quote-left"></i>
+              <span>Intents</span>
+          </li>
+          <li class="tab-title filter hidden" data-ng-click="setTab(4)" data-ng-class="{active:tab===4}">
+              <i class="fa fa-list-alt"></i>
+              <span>Summary</span>
+          </li>
+          <li class="tab-title filter hidden" data-ng-click="setTab(5)" data-ng-class="{active:tab===5}">
+              <i class="fa fa-check-square"></i>
+              <span>Publish & Train</span>
+          </li>
+      </ul>
+
+
+
+//server.js line: 55 - 172
+// Error levels:: error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5
+//LOGGING INFO
+// Use Logger.info("for logging information"); //  can be seen in console & results.log
+// Use Logger.warn("for logging Warning");  // can be seen in console & results.log
+// Use Logger.debug("for logging debugging");  //can be seen in  results.log only
+/////////////End of Winston Logger*//////////
+
+
+/////User Registraion Start/////
+// //** get the organizations list required while User signing in
+// app.get('/organizationsList/', function (req, res) {
+//     var db = req.db;
+//     var data = {
+//         "Data": "",
+//         "error": ""
+//     };
+//     logger.info('Got a GET request for organizationsList');
+//     // logger.info(data1.email);
+//     db.collection('organizations').find().toArray(function (err, orgs) {
+//         if (orgs.length !== 0) {
+//             logger.info("Found Organizations");
+//             logger.info(JSON.stringify(orgs));
+//             data["error"] = 0;
+//             data["Data"] = orgs;
+//             res.json(data);
+//
+//         } else {
+//             data["error"] = 1;
+//             data["Data"] = 'Passwords Not Matched';
+//             console.log(res);
+//             res.json(data);
+//         }
+//     });
+// });
+
+//POST for User Registration(As registration functionality is no more present)
+// app.post('/registerUser/', function (req, res) {
+//     // res.send('Got a get request');
+//     var reqData = req.body;
+//     var data = {
+//         "Data": "",
+//         "error": ""
+//     };
+//     var db = req.db;
+//     logger.info('Got a post request for registerUser');
+//     logger.info(reqData);
+//     if (!!reqData) {
+//         bcrypt.genSalt(10, function (err, salt) {
+//             bcrypt.hash(reqData.password, salt, function (err, hash) {
+//                 // Store hash in your password DB.
+//                 reqData.password = hash;
+//                 loadUserToDB(reqData);
+//                 // logger.info(hash);
+//             });
+//         });
+//         function loadUserToDB(userDetails) {
+//             logger.info(userDetails);
+//
+//             db.collection('userInformation').insert(userDetails, function (err, result) {
+//                 if (!!err) {
+//                     data["error"] = 1;
+//                     data["Data"] = "Error registering the User";
+//                     logger.warn("Failed registering the new User. Please try Again!!");
+//                 } else {
+//                     data["error"] = 0;
+//                     logger.info("registered the new User");
+//                     logger.info(result);
+//                     data["Data"] = result;
+//                 }
+//                 res.json(data);
+//             });
+//         }
+//     } else {
+//         data["Data"] = "User Creation failed Please try Again!!";
+//         logger.warn("didn't have req.body");
+//         res.json(data);
+//
+//     }
+//
+// });
+
+//USE this for Registering the user from NODE
+/*var reqData = {};
+reqData._emailId = "apavate@miraclesoft.com";
+reqData.firstName = "Akash";
+reqData.lastName = "Pavate";
+reqData.password = "Miracle@123";
+reqData.phoneNumber = "248-233-5050";
+reqData.profileImage = "path";
+reqData.updatedOn = new Date().getTime();
+
+// var db = req.db;
+logger.info('Got a post request for registerUser');
+logger.info(reqData);
+
+bcrypt.genSalt(10, function (err, salt) {
+    bcrypt.hash(reqData.password, salt, function (err, hash) {
+        // Store hash in your password DB.
+        reqData.password = hash;
+        db.collection('userInformation').insert(reqData, function (err, result) {
+            if (!!err) {
+                data["error"] = 1;
+                data["Data"] = "Error registering the User";
+                logger.warn("Failed registering the new User. Please try Again!!");
+            } else {
+                data["error"] = 0;
+                logger.info("registered the new User");
+                logger.info(result);
+                data["Data"] = result;
+            }
+
+        });
+        // logger.info(hash);
+    });
+});*/
+
+
+//////User Registraion Ends /////
+
+
+//server.js line 206-
+
+//**GET for getting Model's intents by Model id End**//
+
+///Entities Start
+
+/*app.put('/pushEntityId/', function (req, res) {
+    logger.info("entered '/pushEntityId'");
+    var data = {
+        "Data": "",
+        "error": ""
+    };
+    console.log(JSON.stringify(req.body));
+    var entityId = req.body.entityId.entityIds;
+    entityId.toString();
+
+    var modelId = req.body.modelId;
+    // var modelId = req.params;
+    var db = req.db;
+    logger.info('Got a put request for push entityId in model: ' + modelId);
+    logger.info('Put Entity in: ' + modelId);
+    logger.info(' Entity: ' + entityId);
+    if (entityId.length > 1) {
+        db.collection('modelInformation').update(
+            {_id: ObjectId(modelId)},
+            {$push: {"entities": {$each: entityId}}}, function (err, result) {
+                if (result.length != 0) {
+                    data["error"] = 0;
+                    data["Data"] = result;
+                    logger.info("Successfully pushed an Entity Id");
+                    res.json(data);
+
+                } else {
+                    data["error"] = 1;
+                    data["Data"] = 'unable to link the Entity ID to Model';
+                    logger.info("failed Pushing an Entity ID");
+                    res.json(data);
+                }
+            }
+        );
+    } else {
+        entityId.toString();
+        db.collection('modelInformation').update(
+            {_id: ObjectId(modelId)},
+            {$push: {"entities": entityId[0]}}, function (err, result) {
+                if (result.length != 0) {
+                    data["error"] = 0;
+                    data["Data"] = result;
+                    logger.info("Successfully pushed an Entity Id");
+                    res.json(data);
+
+                } else {
+                    data["error"] = 1;
+                    data["Data"] = 'unable to link the Entity ID to Model';
+                    logger.info("failed Pushing an Entity ID");
+                    res.json(data);
+                }
+            }
+        );
+    }
+});*/
+//**GET for getting model's Entities by Model id DB Start //
+// app.get('/entities/:activeModelEntities', function (req, res) { //V0.3
+//     // res.send('Got a get request');
+//     var data = {
+//         "Data": "",
+//         "error": ""
+//     };
+//     var entities = req.params.activeModelEntities;
+//     console.log("Search for entities inn");
+//     entities = entities.split(",");
+//     console.log(entities);
+//     var entityIds = [];
+//     entities.forEach(function (stringId) {
+//         entityIds.push(new ObjectId(stringId));
+//     });
+//     var db = req.db;
+//     logger.info('Got a GET request for Entities in Model: ' + entities);
+//     logger.info('Got a GET request for Entities ID in Model: ' + entityIds);
+//     db.collection('entities').find(
+//         {
+//             _id: {$in: entityIds}
+//         }).toArray(function (err, result) {
+//         if (err) {
+//             logger.warn("Error in get model Entities req:: err");
+//             logger.warn(err);
+//             data["error"] = 1;
+//             data["Data"] = "No Entities Found";
+//         } else {
+//             logger.info("entered result in get model Entities req");
+//             if (result) {
+//                 data["error"] = 0;
+//                 data["Data"] = result;
+//                 logger.info("entered result in get model Entities req: IF");
+//                 console.log(result);
+//                 res.json(data);
+//             } else {
+//                 data["error"] = 1;
+//                 data["Data"] = 'No Entities found..';
+//                 logger.warn("entered result in get model Entities req: ELSE");
+//                 res.json(data);
+//             }
+//         }
+//     });
+// });
+//**GET for getting Model's Entities by Model id End**//
+
+//**DELETE for deleting an Entity by Model id  and entity name DB Start // V0.3
+/*app.delete('/entities/:entityId', function (req, res) {
+    // res.send('Got a get request');
+    var data = {
+        "Data": "",
+        "error": ""
+    };
+    // var entityName = req.body.entityName;
+    var modelId = req.params.modelId;
+    var entities = req.params.entities;
+    console.log(entities);
+    // var activeModel = req.params.activeModel;
+    var db = req.db;
+    // logger.info('req.body: '+JSON.stringify(req.body));
+    logger.info('Got a delete request for deleting an Entity in model: ' + modelId);
+    // logger.info('entityName' + entityName);
+    // logger.info('activeModel' + activeModel);
+    db.collection('models').update(
+        {_id: ObjectId(modelId)},
+        {
+            $set: {
+                entities: entities
+            }
+        }, function (err, response) {
+            if (response.length != 0) {
+                data["error"] = 0;
+                data["Data"] = response;
+                logger.info("Successfully renamed an entity");
+                res.json(data);
+
+            } else {
+                data["error"] = 1;
+                data["Data"] = 'unable to update the Entities in Model';
+                logger.info("failed Pushing  Entities");
+                res.json(data);
+            }
+        }
+    );
+});*/
+/*//Pull Entity Id from the the active model V0.3
+app.put('/pullEntityId/', function (req, res) {
+    var data = {
+        "Data": "",
+        "error": ""
+    };
+    // var entityName = req.body.entityName;
+    logger.info("entered pullEntityId//////////////////////////////////");
+    var entityData = req.body;
+    entityId = entityData.entityId;
+    modelId = entityData.modelId;
+    // entityId = new ObjectId(entityId);
+    modelId = new ObjectId(modelId);
+    // var activeModel = req.params.activeModel;
+    var db = req.db;
+    // logger.info('req.body: '+JSON.stringify(req.body));
+    logger.info('Got a put request pulling an entity Id from model: ' + modelId);
+    logger.info('Got a put request pulling an entity Id: ' + entityId);
+    // logger.info('entityName' + entityName);
+    // logger.info('activeModel' + activeModel);
+    db.collection('modelInformation').update(
+        {_id: modelId},
+        {$pull: {entities: {$in: [entityId]}}}, function (err, result) {
+            if (result.length != 0) {
+                data["error"] = 0;
+                data["Data"] = result;
+                logger.info("Successfully pulled an Entity ID");
+                res.json(data);
+
+            } else {
+                data["error"] = 1;
+                data["Data"] = 'No Entity Information found..';
+                logger.info("failed pulling an Entity ID");
+                res.json(data);
+            }
+        }
+    );
+});*/
+//**DELETE for deleting an Entity by Model id  and entity name DB End**//
+
+
+//put for Editing an Entity Start

@@ -1,0 +1,91 @@
+<!-- The actual modal template, just a bit o bootstrap -->
+<!--<script type="text/ng-template" id="modal.html">-->
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-ng-click="cancel('No')" data-dismiss="modal"
+                        aria-hidden="true">
+                    &times
+                </button>
+                <h4 class="modal-title">Create a New model</h4>
+            </div>
+            <form name="createmodelForm">
+                <div class="modal-body">
+                    <div growl></div>
+                    <input ng-model="json" name="image_file"
+                           onchange="angular.element(this).scope().uploadFile()"
+                           type="file" accept=".json" id="fileUploadInput"/>
+                    <!--<input type="button" class="" data-ng-click="uploadAndSave()" value="upload">-->
+
+                    <div data-ng-if="showModelReg"><!--If USER UPLOADS A VALID json-->
+                        <div class="modal-body-content row">
+                            <label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Model Name</label>
+
+                            <span style="margin-right: 5px;"><strong>:</strong></span><input name="modelname"
+                                                                                             type="text"
+                                                                                             data-ng-model="newModel.name"
+                                                                                             autofocus
+                                                                                             data-ng-focus="console.log('Input Focused')"
+                                                                                             data-ng-chage="console.log('Input change')"
+                                                                                             data-ng-blur="console.log('Input blurred')"
+                                                                                             required>
+                            <span class="validatorText"
+                                  data-ng-show="createmodelForm.modelname.$touched && createmodelForm.modelname.$invalid">model name is required.</span>
+                        </div>
+                        <div class="modal-body-content row">
+                            <label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Tags</label>
+                            <!--style="margin-left: 81px;"-->
+                            <span style="margin-right: 5px;"><strong>:</strong></span>
+                            <input name="modeltags" type="text" data-ng-model="newModel.tags"
+                                   placeholder="comma separated Tags" data-ng-pattern="/^[a-zA-Z0-9,_-]*$/">
+                            <!--<span class="validatorText" ng-show="createmodelForm.modelname.$touched && createmodelForm.modeltags.$errorpattern">Not a valid number!</span>-->
+                            <span class="validatorText" ng-show="createmodelForm.modeltags.$error.pattern">Use only "_" and "-" as special Characters</span>
+                        </div>
+                        <div class="modal-body-content row">
+                            <label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Description</label>
+                            <!--style="float: left;margin-left: 2px;" -->
+                            <span style="margin-right: 5px;"><strong>:</strong></span>
+                            <textarea rows="2" cols="18" name="modelDesc" data-ng-model="newModel.desc"
+                            ></textarea><!--style="display: inline;margin-left: 3px;"--><!--maxlength="65"-->
+
+                        </div>
+                        <div class="modal-body-content row">
+                            <label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Language</label>
+                            <!--style="margin-left: 16px;" -->
+                            <span style="margin-right: 5px;"><strong>:</strong></span>
+                            <input name="modellanguage" type="text" data-ng-model="newModel.language"
+                                   placeholder="Language">
+                        </div>
+                        <div class="modal-body-content row">
+                            <label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Utterance Sample</label>
+                            <!--style="margin-left: 16px;" -->
+                            <span style="margin-right: 5px;"><strong>:</strong></span>
+                            <input name="modelutterance" type="text" data-ng-model="newModel.utteranceSample"
+                                   placeholder="Sample Utterance">
+                        </div>
+                        <div class="modal-body-content row">
+                            <label class="col-xs-5 col-sm-6 col-md-5 col-lg-4">Select model Icon</label>
+                            <!--style="margin-left: 16px;"-->
+                            <span style="margin-right: 5px;"><strong>:</strong></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-ng-click="cancelnewModel('No')" class="btn btn-default"
+                            data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" data-ng-click="uploadAndSave('Yes')" class="btn btn-primary" data-dismiss="modal" data-ng-if="showModelReg"
+                    data-ng-disabled="createmodelForm.$invalid">Upload and Create Model
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--</script>-->
+<style>
+
+</style>
+

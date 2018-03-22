@@ -1,0 +1,659 @@
+/* Miracle Standard color palette */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,900');
+.btn.green-bg {
+  border-color: #33B7A0;
+}
+.btn.blue-bg {
+  border-color: #337AB7;
+}
+.btn.skyblue-bg {
+  border-color: #36C6D3;
+}
+.btn.red-bg {
+  border-color: #ED6B75;
+}
+.btn {
+  -webkit-transition: background-color 0.5s, color 0.5s, border 0.5s ease-out;
+  -moz-transition: background-color 0.5s, color 0.5s, border 0.5s ease-out;
+  -o-transition: background-color 0.5s, color 0.5s, border 0.5s ease-out;
+  transition: background-color 0.5s, color 0.5s, border 0.5s ease-out;
+}
+.radius-0 {
+  border-radius: 0px;
+}
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif !important;
+}
+p,
+ul,
+li,
+a {
+  font-family: 'Montserrat', sans-serif !important;
+}
+.section-login-panel {
+  margin-top: 200px;
+}
+.section-login-panel .login-panel .mTrainer-info-wrapper .mTrainer-info {
+  text-align: justify;
+}
+.section-login-panel .login-panel .mTrainer-info-wrapper p {
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+.section-login-panel .login-panel .login-panel-content-wrapper .login-panel-header-wrapper p {
+  font-weight: 700;
+  font-size: 23px;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 0px;
+  color: #232527;
+}
+.section-login-panel .login-panel .login-panel-content-wrapper .login-panel-header-wrapper .half {
+  padding: 20px 20px 20px 20px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.section-login-panel .login-panel .login-panel-content-wrapper .login-panel-header-wrapper .active {
+  padding: 20px 20px 15px 20px;
+}
+.section-login-panel .login-panel .login-panel-content-wrapper .login-panel-content {
+  border: 1px solid #e8e8e8;
+  border-left: 5px solid #00aae7;
+}
+.section-login-panel .login-panel .login-panel-content-wrapper .login-panel-content .loginButton {
+  background-color: #00aae7;
+  color: #fff;
+  font-weight: 700;
+  -webkit-transition: background-color 0.5s, color 0.5s ease-out;
+  -moz-transition: background-color 0.5s, color 0.5s ease-out;
+  -o-transition: background-color 0.5s, color 0.5s ease-out;
+  transition: background-color 0.5s, color 0.5s ease-out;
+}
+.section-login-panel .login-panel .login-panel-content-wrapper .login-panel-content .loginButton:hover {
+  background-color: #2368a0;
+}
+header.simple-normal .side-menus .parent-menu .rendered-models-list {
+  padding: 15px 30px;
+  color: #fff;
+}
+header.simple-normal .side-menus .parent-menu .rendered-models-list .rendered-botName {
+  color: #fff;
+}
+header.simple-normal .side-menus .parent-menu .rendered-models-list .collapsible ul {
+  padding-left: 8px;
+}
+header.simple-normal .side-menus .parent-menu .rendered-models-list .collapsible ul li a {
+  color: #ccc;
+}
+header.simple-normal .side-menus .parent-menu .rendered-models-list .collapsible ul li a:hover {
+  color: #fff;
+}
+.createBot-modal .modal-header {
+  text-align: center;
+}
+.createBot-modal .createModel-form .modal-body #step-1 .inline-form {
+  border: 1px solid #aaa !important;
+}
+.createBot-modal .createModel-form .modal-body #step-1 .inline-form input::placeholder,
+.createBot-modal .createModel-form .modal-body #step-1 .inline-form textarea::placeholder {
+  color: #ccc;
+}
+.createBot-modal .createModel-form .modal-body #step-1 .modelCheck .active-btn {
+  background-color: #ffd000;
+  color: #333;
+  font-weight: 500;
+}
+.createBot-modal .createModel-form .modal-body #step-1 .modelCheck .inactive-btn {
+  background-color: rgba(186, 186, 186, 0.4);
+  color: #333;
+}
+.createBot-modal .createModel-form .createBot-action-buttons {
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+button.cancel {
+  color: #333;
+}
+.section-dashboard-panel .main-content-area .start-new-wrapper {
+  margin-top: 30px;
+}
+.section-dashboard-panel .main-content-area .start-new-wrapper .start-new-well {
+  border: 2px dashed #b7b2b3;
+  padding: 80px 0px;
+}
+.section-dashboard-panel .main-content-area .start-new-wrapper .start-new-well .start-new-header {
+  font-weight: 600;
+  font-size: 28px;
+}
+.section-dashboard-panel .main-content-area .start-new-wrapper .start-new-well .start-new-info {
+  font-weight: 500;
+}
+.section-dashboard-panel .main-content-area .start-new-wrapper .start-new-well .start-new-cta {
+  margin-top: 30px;
+  font-weight: 500;
+}
+.section-dashboard-panel .main-content-area .start-new-wrapper .start-new-well .start-new-cta button {
+  margin-top: 10px;
+  background-color: #0d416b;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.section-dashboard-panel .main-content-area .start-new-wrapper .start-new-well .start-new-cta button:hover {
+  border: 2px solid #00aae7;
+  color: #FFFFFF;
+}
+.section-dashboard-panel .main-content-area .model-cards .model-card .widget .admin-follow {
+  padding: 20px 20px;
+}
+.section-dashboard-panel .main-content-area .model-cards .model-card .widget .admin-follow h2 {
+  cursor: pointer;
+}
+.section-dashboard-panel .main-content-area .model-cards .model-card .widget .admin-follow p[publishMode*="draft"] {
+  font-style: italic;
+  text-transform: capitalize;
+  color: #aaa;
+}
+.section-dashboard-panel .main-content-area .model-cards .model-card .widget .admin-follow p[publishMode*="published"] {
+  text-transform: capitalize;
+  color: #00ffa9;
+}
+.section-dashboard-panel .main-content-area .model-cards .model-card .widget .admin-follow .model-actions span {
+  font-size: 18px;
+  cursor: pointer;
+}
+.section-dashboard-panel .main-content-area .model-cards .model-card .widget .admin-follow .model-actions .fa-pencil:hover,
+.section-dashboard-panel .main-content-area .model-cards .model-card .widget .admin-follow .model-actions .fa-list:hover {
+  color: #00aae7;
+}
+.section-dashboard-panel .main-content-area .model-cards .model-card .widget .admin-follow .model-actions .fa-trash:hover {
+  color: #ed6b75;
+}
+.section-dashboard-panel .main-content-area .model-cards .model-card .mail-menu ul > li:first-child {
+  border-bottom: 2px solid #ececec;
+  border-top: 2px dashed #dde;
+}
+.section-dashboard-panel .main-content-area .model-cards .model-card .mail-menu ul > li a {
+  padding: 10px 30px;
+}
+.section-dashboard-panel .main-content-area .model-cards .model-card .mail-menu ul > li a:hover {
+  font-weight: 700;
+  color: #333;
+  background-color: transparent;
+  padding-left: 33px;
+}
+.section-dashboard-panel .main-content-area .model-cards .model-card .mail-menu ul > li a:hover span {
+  font-weight: 500;
+}
+.section-dashboard-panel .card-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.section-dashboard-panel .card-1:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.botContents_growl > .growl {
+  float: right;
+  position: fixed;
+  right: 10px;
+  top: 70px;
+  width: 250px;
+}
+.status-indicator span {
+  position: absolute;
+  font-size: 10px;
+  letter-spacing: 0.75px;
+  padding: 1px 4px;
+  color: #fff;
+  text-transform: capitalize;
+}
+.status-indicator .grey-bg {
+  background-color: #ccc;
+  color: #888;
+}
+.heading-profile .model-name-tight-wrapper {
+  border-bottom: 3px solid #ccc;
+  font-weight: 700;
+  padding: 0px 5px 5px 5px;
+}
+.controls.portfolio-nav {
+  margin-top: 0px;
+  text-align: left;
+}
+.controls.portfolio-nav .nav-wrapper {
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 15px;
+  padding-left: 15px;
+}
+.controls.portfolio-nav .nav-wrapper .tabHeads {
+  cursor: pointer;
+  webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+.controls.portfolio-nav .nav-wrapper .tabHeads:hover {
+  color: rgba(85, 90, 109, 0.65) !important;
+}
+.tabHeads.active {
+  color: #555A6D !important;
+}
+.model-info-wrapper .description-hidden {
+  padding: 50px 15px;
+  border: 3px dashed #ccc;
+  font-weight: 700;
+  color: #ccc;
+}
+.model-info-wrapper .model-info-label {
+  font-weight: 700;
+}
+.model-info-wrapper .model-info-label:last-child {
+  margin-right: 5px;
+}
+.model-controls-wrapper .model-controls-info-card-wrapper {
+  padding: 20px 0px;
+  background-color: #474C60;
+}
+.model-controls-wrapper .model-controls-info-card-wrapper .model-controls-info-card {
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  width: 48%;
+}
+.model-controls-wrapper .model-controls-info-card-wrapper .model-controls-info-card p.content-wrapper-label {
+  color: #fff;
+  margin-bottom: 0px;
+}
+.model-controls-wrapper .model-controls-info-card-wrapper .model-controls-info-card p.content-wrapper {
+  color: #fff;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+.model-controls-wrapper .model-controls-info-card-wrapper .model-controls-info-card p.content-wrapper .content {
+  font-weight: 700;
+  font-size: 35px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #fff;
+}
+.model-url-wrapper {
+  margin-top: 25px;
+}
+.model-url-wrapper #url-input-label {
+  font-weight: 700;
+  color: #474C60;
+  border: 1px solid transparent;
+}
+#secret-input-label {
+  font-weight: 700;
+  color: #fff;
+  border: 1px solid transparent;
+}
+.model-controls-wrapper2 {
+  padding: 0px 10px 30px 10px;
+  margin-top: 25px;
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #474C60;
+}
+.model-controls-wrapper2 .model-controls-wrapper-header {
+  margin-bottom: 20px;
+  padding-top: 10px;
+  margin-bottom: 35px;
+}
+.model-controls-wrapper2 .model-controls-wrapper-header .content {
+  font-weight: 700;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #747c99;
+}
+.model-controls-wrapper2 .model-controls-wrapper-header .stats-info {
+  color: #fff;
+  text-transform: uppercase;
+}
+.model-controls-wrapper2 .each-cta {
+  padding: 0px 25px;
+}
+.model-controls-wrapper2 .each-cta p {
+  margin-top: 15px;
+  text-align: justify;
+  color: #fff;
+  font-weight: 500;
+}
+.model-controls-wrapper2 .model-stats-wrapper {
+  margin-top: 35px;
+}
+.model-controls-wrapper2 .model-stats-wrapper .model-stats {
+  border-top: 1px solid #ffffff;
+  padding-top: 35px;
+}
+.model-controls-wrapper2 .model-stats-wrapper .model-stats .model-stats-info-card {
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  width: 48%;
+}
+.model-controls-wrapper2 .model-stats-wrapper .model-stats .model-stats-info-card p.content-wrapper-label {
+  color: #fff;
+  margin-bottom: 0px;
+}
+.model-controls-wrapper2 .model-stats-wrapper .model-stats .model-stats-info-card p.content-wrapper {
+  color: #fff;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+.model-controls-wrapper2 .model-stats-wrapper .model-stats .model-stats-info-card p.content-wrapper .content {
+  font-weight: 700;
+  font-size: 35px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #fff;
+}
+.model-controls-wrapper2 .model-stats-wrapper .training-progress {
+  margin-left: 10px;
+}
+.model-controls-wrapper2 .model-stats-wrapper .training-progress h3 {
+  color: #fff;
+}
+.model-controls-wrapper2 .model-stats-wrapper .training-progress .bar {
+  margin-left: 10px;
+  width: 100%;
+  background-color: transparent;
+}
+.model-controls-wrapper2 .model-stats-wrapper .training-progress .bar .progress {
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+}
+.model-controls-wrapper2 .model-stats-wrapper .publish-output {
+  margin-left: 10px;
+}
+.model-controls-wrapper2 .model-stats-wrapper .publish-output h5 {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.model-controls-wrapper2 .model-stats-wrapper .publish-output label {
+  font-weight: 400;
+}
+.model-controls-wrapper2 .model-stats-wrapper .publish-output .input-group {
+  width: 100%;
+}
+.model-controls-wrapper2 .model-stats-wrapper .publish-output .input-group input {
+  color: #fff;
+  background-color: transparent;
+}
+.model-controls-wrapper2 .model-stats-wrapper .publish-output .input-group .input-group-addon {
+  color: pointer;
+  color: #fff;
+  background-color: transparent;
+}
+.model-controls-wrapper2 .model-stats-wrapper .publish-output .secret-info p {
+  color: #fff;
+  padding: 0px 10px;
+  font-size: 12px;
+}
+.description-shown-wrapper:hover .overlay {
+  opacity: 0.50;
+}
+.overlay {
+  opacity: 0;
+  color: #000;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  margin: 0px auto;
+  text-align: center;
+  font-size: 40px;
+  padding-top: 30px;
+  line-height: 27px;
+  transition: .5s ease;
+}
+.overlay span {
+  opacity: 1;
+}
+.overlay span.text {
+  font-size: 30px;
+}
+.new-intent-contents {
+  margin: 0px 20px;
+}
+.new-intent-contents .addIntentText,
+.new-intent-contents .addNewUtterance {
+  margin: 25px 0px;
+}
+.new-intent-contents .radius-0 {
+  border-radius: 0px;
+}
+.new-intent-contents .intent-actions .edit {
+  padding: 3px;
+  border: 2px solid transparent;
+  border-bottom: 2px solid #EC971F;
+  margin-left: 15px;
+  font-size: 12px;
+  webkit-transition: border 0.3s;
+  transition: border 0.3s;
+}
+.new-intent-contents .intent-actions .edit:hover {
+  border-color: #EC971F;
+}
+.new-intent-contents .intent-actions .delete {
+  padding: 3px;
+  padding-right: 3.5px;
+  border: 2px solid transparent;
+  border-bottom: 2px solid #D9534F;
+  margin-left: 15px;
+  font-size: 12px;
+  webkit-transition: border 0.3s;
+  transition: border 0.3s;
+}
+.new-intent-contents .intent-actions .delete:hover {
+  border-color: #D9534F;
+}
+.new-intent-contents .intent-editable-actions .renameIntentInput {
+  padding-left: 5px;
+  margin-right: 10px;
+}
+.new-intent-contents .intent-editable-actions .save {
+  color: #33B7A0;
+  margin-right: 10px;
+  webkit-transition: background-color 0.3s, color 0.3s, border 0.3s;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  border: 2px solid transparent;
+}
+.new-intent-contents .intent-editable-actions .save:hover {
+  color: #fff;
+  border-color: #33B7A0;
+  border-radius: 3px;
+}
+.new-intent-contents .intent-editable-actions .cancel {
+  color: #D9534F;
+  webkit-transition: background-color 0.3s, color 0.3s, border 0.3s;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  border: 2px solid transparent;
+}
+.new-intent-contents .intent-editable-actions .cancel:hover {
+  color: #fff;
+  border-color: #D9534F;
+  border-radius: 3px;
+}
+.new-intent-contents .renameIntentInput {
+  height: 23px;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 2px solid #fff;
+}
+.new-intent-contents .addMappingArea {
+  cursor: pointer;
+  height: 100px;
+  border: 2px dashed #ccc;
+  margin: 15px 0px 20px 0px;
+}
+.new-intent-contents .addMappingArea:hover p {
+  color: #888;
+}
+.new-intent-contents .addMappingArea p {
+  color: #ccc;
+  font-weight: 500;
+  margin-top: 35px;
+  font-size: 18px;
+  webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+.new-intent-contents .addMappingEditable {
+  margin: 15px 0px 25px 0px;
+  border: 2px dashed #ccc;
+  padding: 15px;
+}
+.new-intent-contents .emptyWordSelection {
+  margin-top: 35px;
+}
+.new-intent-contents .emptyWordSelection p {
+  font-size: 18px;
+  color: #ccc;
+}
+.new-intent-contents .addMappingFormFields {
+  margin-top: 25px;
+}
+.new-intent-contents .addMappingFormFields .labels {
+  font-weight: 700;
+}
+.new-intent-contents .entity-form-control {
+  height: 24px;
+  padding: 0px 10px;
+}
+.new-intent-contents .strong {
+  font-weight: 600;
+}
+.new-intent-contents .intents_pos {
+  margin: 0 10px;
+}
+.new-intent-contents .mapping_data:hover {
+  background-color: #e0e3e4;
+}
+.new-intent-contents .mapping_data i {
+  font-size: 1.5em;
+  padding: 10px;
+  vertical-align: middle;
+}
+.new-intent-contents .mapping_data i:hover {
+  color: red;
+}
+.new-intent-contents a.accordion {
+  color: inherit;
+  text-decoration: none;
+}
+.new-intent-contents ul.accordion {
+  list-style: none;
+  padding: 0;
+}
+.new-intent-contents ul.accordion li {
+  margin: .5em 0;
+}
+.new-intent-contents ul .inner {
+  display: none;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 1em;
+  padding: 0;
+}
+.new-intent-contents ul li a.toggle {
+  background: rgba(59, 63, 81, 0.9);
+  border-radius: 0.15em;
+  color: #fefefe;
+  display: block;
+  padding: .75em;
+  transition: background .3s ease;
+  width: 100%;
+}
+.new-intent-contents ul li a.toggle:hover {
+  background: #3b3f51;
+}
+.new-intent-contents ul.inner li a.toggle {
+  background: #666972;
+  border-radius: 0.15em;
+  color: #fefefe;
+  display: block;
+  padding: .50em;
+  transition: background .3s ease;
+  width: 100%;
+}
+.new-intent-contents ul.inner li a.toggle:hover {
+  background-color: #474c59;
+}
+.new-intent-contents .entity_inMapping {
+  margin-left: 5px;
+}
+.entityDiv {
+  margin: 0px 30px;
+}
+.entityDiv .single-entity-wrapper .entity-editable {
+  background-color: rgba(224, 224, 224, 0.6);
+  border-color: #aaa !important;
+}
+.entityDiv .single-entity-wrapper .widget {
+  text-transform: uppercase;
+  border: 2px solid #ddd;
+}
+.entityDiv .single-entity-wrapper .widget .entity-title h4 {
+  padding-top: 10%;
+  font-weight: 700;
+  color: #333;
+}
+.entityDiv .single-entity-wrapper .widget .entity-title .entity-edit-input {
+  background-color: transparent;
+  margin-top: 15px;
+  margin-bottom: 7px;
+  padding-top: 10%;
+  padding-bottom: 15px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-bottom: 2px solid #888;
+}
+.entityDiv .single-entity-wrapper .widget .entity-actions span {
+  padding: 10px 15px;
+  font-size: 15px;
+}
+.entityDiv .single-entity-wrapper .widget .entity-actions span:hover {
+  cursor: pointer;
+}
+.entityDiv .single-entity-wrapper .widget .entity-actions .edit:hover {
+  color: #EC971F;
+}
+.entityDiv .single-entity-wrapper .widget .entity-actions .delete:hover {
+  color: #D9534F;
+}
+.entityDiv .single-entity-wrapper .widget .entity-actions-editable span {
+  padding: 10px 15px;
+  font-size: 15px;
+}
+.entityDiv .single-entity-wrapper .widget .entity-actions-editable span:hover {
+  cursor: pointer;
+}
+.entityDiv .single-entity-wrapper .widget .entity-actions-editable .edit {
+  color: #33B7A0;
+}
+.entityDiv .single-entity-wrapper .widget .entity-actions-editable .edit:hover {
+  border-color: #33B7A0;
+}
+.entityDiv .single-entity-wrapper .widget .entity-actions-editable .delete {
+  color: #D9534F;
+}
+.entityDiv .single-entity-wrapper .widget .entity-actions-editable .delete:hover {
+  border-color: #D9534F;
+}
